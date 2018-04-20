@@ -25,8 +25,7 @@ mongoose.connection.on('error', (err) => {
 
 const app = express();
 
-const users = require('./routes/users');
-const confirmation = require('./routes/confirmation');
+
 
 
 const port = process.env.PORT || 8080;
@@ -48,8 +47,13 @@ app.use(passport.session());
 
 require('./config/passport')(passport);
 
+const users = require('./routes/users');
+const confirmation = require('./routes/confirmation');
+const posts = require('./routes/posts');
+
 app.use('/users', users);
 app.use('/confirmation', confirmation);
+app.use('/posts', posts);
 
 
 
