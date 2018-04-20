@@ -33,7 +33,7 @@ router.get('/', (req, res) => {
     }).sort({_id:-1})
 });
 
-router.put('/posts/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     var db = req.db;
     Post.findById(req.params.id, 'title description', function (error, post) {
       if (error) { console.error(error); }
@@ -49,7 +49,16 @@ router.put('/posts/:id', (req, res) => {
         })
       })
     })
+})
+
+  // Fetch single post
+router.get('/:id', (req, res) => {
+  var db = req.db;
+  Post.findById(req.params.id, 'title description', function (error, post) {
+    if (error) { console.error(error); }
+    res.send(post)
   })
+})
 
 module.exports = router;
 

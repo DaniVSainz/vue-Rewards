@@ -63,10 +63,10 @@ app.get('/', (req, res) => {
   res.send('invaild endpoint');
 });
 
-app.get('*', (req, res) => {
-  // res.sendFile(path.join(__dirname, './angular-src/dist/index.html'));
-  res.send('Hello from not / endpoint');
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, './angular-src/dist/index.html'));
+//   res.send('Hello from not / endpoint');
+// });
 
 // Start Server
 // app.listen(port, () => {

@@ -33,6 +33,7 @@ export default {
       const response = await PostsService.getPost({
         id: this.$route.params.id
       })
+      console.log(response)
       this.title = response.data.title
       this.description = response.data.description
     },
