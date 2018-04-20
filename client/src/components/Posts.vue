@@ -1,4 +1,3 @@
-
 <template>
   <div class="posts">
     <h1>Posts</h1>
@@ -17,7 +16,7 @@
           <td>{{ post.description }}</td>
           <td align="center">
             <router-link v-bind:to="{ name: 'EditPost', params: { id: post._id } }">Edit</router-link> |
-            <a href="#">Delete</a>
+            <button href="" @click="deletePost(post._id)">Delete</button>
           </td>
         </tr>
       </table>
@@ -41,11 +40,18 @@ export default {
   },
   mounted () {
     this.getPosts()
+    console.log('====================================')
+    console.log('Navigated to posts')
+    console.log('====================================')
   },
   methods: {
     async getPosts () {
       const response = await PostsService.fetchPosts()
       this.posts = response.data.posts
+    },
+    async deletePost (id) {
+      await PostsService.deletePost(id)
+      this.$router.push({ name: 'Posts' })
     }
   }
 }

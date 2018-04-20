@@ -45,7 +45,7 @@ router.put('/:id', (req, res) => {
           console.log(error)
         }
         res.send({
-          success: true
+          success: true,
         })
       })
     })
@@ -57,6 +57,20 @@ router.get('/:id', (req, res) => {
   Post.findById(req.params.id, 'title description', function (error, post) {
     if (error) { console.error(error); }
     res.send(post)
+  })
+})
+
+router.delete('/:id', (req, res) => {
+  var db = req.db;
+  Post.remove({
+    _id: req.params.id
+  }, function(err, post){
+    if (err)
+      res.send(err)
+    res.send({
+      success: true,
+      msg:'Deleted Post'
+    })
   })
 })
 
