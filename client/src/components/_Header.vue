@@ -1,7 +1,7 @@
 <template>
     <div class="header-container">
         <div >
-            <img src="~../assets/logo-razz.png" alt="">
+            <img src="../assets/logo-razz.png" alt="">
         </div>
         <div class='rewards'>
             <h4>Rewards</h4>

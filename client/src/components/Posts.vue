@@ -31,6 +31,13 @@
     <div>
       <h3 class='no-margin'>Here is the full list of prizes that you can win.</h3>
     </div>
+    <div>
+      <div v-for="prize in prizes" :key="prize._id">
+        <h4>{{prize.name}}</h4>
+        <p>{{prize.description}}</p>
+        <img :src="prize.image_url" alt="">
+      </div>
+    </div>
   </div>
 
 </template>
