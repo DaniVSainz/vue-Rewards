@@ -9,10 +9,10 @@
           <textarea rows="15" cols="15" placeholder="DESCRIPTION" v-model="description"></textarea>
         </div>
         <div>
-          <input type="text" name="name" placeholder="Quantity" v-model="Quantity">
+          <input type="text" name="name" placeholder="Quantity" v-model="quantity">
         </div>
         <div>
-          <input type="text" name="name" placeholder="Name" v-model="name">
+          <input type="text" name="name" placeholder="image_url" v-model="image_url">
         </div>
         <div>
           <button class="app_post_btn" @click="addPost">Add</button>
@@ -29,14 +29,19 @@ export default {
   data () {
     return {
       name: '',
-      description: ''
+      description: '',
+      quantity: 0,
+      image_url: ''
+
     }
   },
   methods: {
     async addPost () {
       await PostsService.addPost({
         name: this.name,
-        description: this.description
+        description: this.description,
+        quantity: this.quantity,
+        image_url: this.image_url
       })
       this.$router.push({ name: 'Posts' })
     }

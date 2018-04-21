@@ -38,11 +38,12 @@
 <script>
 
 import PostsService from '@/services/PostsService'
+
 export default {
-  name: 'posts',
+  name: 'Prizes',
   data () {
     return {
-      posts: []
+      prizes: []
     }
   },
   mounted () {
@@ -51,7 +52,8 @@ export default {
   methods: {
     async getPosts () {
       const response = await PostsService.fetchPosts()
-      this.posts = response.data.posts
+      this.prizes = response.data.prizes
+      console.log(this.prizes)
     },
     async deletePost (id) {
       await PostsService.deletePost(id)

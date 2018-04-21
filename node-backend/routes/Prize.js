@@ -7,11 +7,16 @@ const Prize = require("../models/Prize");
 router.post('/new', (req, res, next) => {
     let name = req.body.name;
     let description = req.body.description;
-    console.log(req);
+    let quantity = req.body.quantity;
+    let image_url = req.body.image_url;
+
     let new_post = new Prize({
-        name: name,
-        description: description
-    })
+        name,
+        description,
+        quantity,
+        image_url
+    });
+    console.log(new_post);
 
     new_post.save(function (error) {
         if (error) {
@@ -25,11 +30,11 @@ router.post('/new', (req, res, next) => {
 });
 
 router.get('/', (req, res) => {
-    Prize.find({}, function (error, posts) {
+    Prize.find({}, function (error, prizes) {
       if (error) { console.error(error); }
-      console.log(posts);
+      console.log(prizes);
       res.send({
-        posts: posts
+        prizes
       })
     }).sort({_id:-1})
 });
