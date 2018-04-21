@@ -49,11 +49,11 @@ require('./config/passport')(passport);
 
 const users = require('./routes/users');
 const confirmation = require('./routes/confirmation');
-const posts = require('./routes/posts');
+const Prize = require('./routes/Prize');
 
 app.use('/users', users);
 app.use('/confirmation', confirmation);
-app.use('/posts', posts);
+app.use('/posts', Prize);
 
 
 
@@ -64,7 +64,7 @@ app.get('/', (req, res) => {
 });
 
 // app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, './angular-src/dist/index.html'));
+//   res.sendFile(path.join(__dirname, './client/dist/index.html'));
 //   res.send('Hello from not / endpoint');
 // });
 

@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
-const Post = require("../models/posts");
+const Prize = require("../models/Prize");
 
 
 router.post('/new', (req, res, next) => {
     let title = req.body.title;
     let description = req.body.description;
     console.log(req);
-    let new_post = new Post({
+    let new_post = new Prize({
         title: title,
         description: description
     })
@@ -19,13 +19,13 @@ router.post('/new', (req, res, next) => {
         }
         res.send({
         success: true,
-        message: 'Post saved successfully!'
+        message: 'Prize saved successfully!'
         })
     })
 });
 
 router.get('/', (req, res) => {
-    Post.find({}, 'title description', function (error, posts) {
+    Prize.find({}, 'title description', function (error, posts) {
       if (error) { console.error(error); }
       res.send({
         posts: posts
@@ -35,7 +35,7 @@ router.get('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
     var db = req.db;
-    Post.findById(req.params.id, 'title description', function (error, post) {
+    Prize.findById(req.params.id, 'title description', function (error, post) {
       if (error) { console.error(error); }
   
       post.title = req.body.title
@@ -54,7 +54,7 @@ router.put('/:id', (req, res) => {
   // Fetch single post
 router.get('/:id', (req, res) => {
   var db = req.db;
-  Post.findById(req.params.id, 'title description', function (error, post) {
+  Prize.findById(req.params.id, 'title description', function (error, post) {
     if (error) { console.error(error); }
     res.send(post)
   })
@@ -62,14 +62,14 @@ router.get('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   var db = req.db;
-  Post.remove({
+  Prize.remove({
     _id: req.params.id
   }, function(err, post){
     if (err)
       res.send(err)
     res.send({
       success: true,
-      msg:'Deleted Post'
+      msg:'Deleted Prize'
     })
   })
 })
