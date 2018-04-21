@@ -79,7 +79,7 @@ router.get('/seeddata', async(req,res,next)=>{
       newPrize = new Prize({
         name,
         description,
-        image_url: urls[i].image_url,
+        image_url: urls[i],
         quantity
       });
       
