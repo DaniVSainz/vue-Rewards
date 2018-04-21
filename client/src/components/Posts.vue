@@ -31,32 +31,26 @@
     <div>
       <h3 class='no-margin'>Here is the full list of prizes that you can win.</h3>
     </div>
-    <!-- <div>
-      <div v-for="prize in prizes" :key="prize._id">
-        <h4>{{prize.name}}</h4>
-        <p>{{prize.description}}</p>
-        <img :src="prize.image_url" alt="">
-      </div>
-    </div> -->
-    <div class="row">
+      <b-card-group>
       <b-card v-for="prize in prizes"  :key="prize._id" title="Card Title"
-      :img-src='prize.image_url'
-      img-alt="Image"
-      img-top
-      tag="article"
-      style="max-width: 20rem;"
-      class="mb-2"
-    >
+        :img-src='prize.image_url'
+        img-alt="Image"
+        img-top
+        tag="article"
+        style="max-width: 20rem;"
+        class="mb-2"
+      >
     <h3>{{prize.name}}</h3>
-    <b-button href="#" variant="razz">Redeem</b-button>
+    <router-link v-bind:to="'prizes/' + prize._id">
+      <b-button variant="razz">Redeem</b-button>
+    </router-link>
    </b-card>
-    </div>
+  </b-card-group>
   </div>
 
 </template>
 
 <script>
-
 import PostsService from '@/services/PostsService'
 
 export default {
@@ -83,53 +77,14 @@ export default {
 }
 </script>
 <style type="text/css">
-
-.prizes{
-  width:70%;
-  height:65vh;
-  background-color:#f3f3f3;
+.prizes {
+  width: 70%;
+  height: auto;
+  background-color: #f3f3f3;
   margin: 0 auto;
 }
 
-b-button{
-  background-color: rgb(255, 207, 11);
-}
-
-.no-margin{
-  margin:0;
-}
-
-.table-wrap {
-  width: 60%;
-  margin: 0 auto;
-  text-align: center;
-}
-table th, table tr {
-  text-align: left;
-}
-table thead {
-  background: #f2f2f2;
-}
-table tr td {
-  padding: 10px;
-}
-table tr:nth-child(odd) {
-  background: #f2f2f2;
-}
-table tr:nth-child(1) {
-  background: #4d7ef7;
-  color: #fff;
-}
-a {
-  color: #4d7ef7;
-  text-decoration: none;
-}
-a.add_post_link {
-  background: #4d7ef7;
-  color: #fff;
-  padding: 10px 80px;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: bold;
+.no-margin {
+  margin: 0;
 }
 </style>

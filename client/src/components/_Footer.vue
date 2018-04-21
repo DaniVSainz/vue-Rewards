@@ -12,7 +12,7 @@ export default {
 </script>
 <style type="text/css">
     .footer-container{
-        min-width:70%;
+        width:70%;
         min-height: 35%;
         /* background-color: #0274bb; */
         margin:0 auto;
