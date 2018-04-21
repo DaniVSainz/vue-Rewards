@@ -38,7 +38,8 @@
         <img :src="prize.image_url" alt="">
       </div>
     </div> -->
-    <b-card v-for="prize in prizes"  :key="prize._id" title="Card Title"
+    <div class="row">
+      <b-card v-for="prize in prizes"  :key="prize._id" title="Card Title"
       :img-src='prize.image_url'
       img-alt="Image"
       img-top
@@ -48,7 +49,8 @@
     >
     <h3>{{prize.name}}</h3>
     <b-button href="#" variant="razz">Redeem</b-button>
-  </b-card>
+   </b-card>
+    </div>
   </div>
 
 </template>

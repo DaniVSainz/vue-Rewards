@@ -2,15 +2,18 @@
   <div id="app">
     <v-header></v-header>
     <router-view/>
+    <v-footer></v-footer>
   </div>
 </template>
 
 <script>
 import Header from './components/_header'
+import Footer from './components/_footer'
 export default {
   name: 'App',
   components: {
-    'v-header': Header
+    'v-header': Header,
+    'v-footer': Footer
   }
 }
 </script>

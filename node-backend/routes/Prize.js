@@ -36,7 +36,8 @@ router.get('/', (req, res) => {
       res.send({
         prizes
       })
-    }).sort({_id:-1})
+    })
+    // .sort({_id:-1})
 });
 
 router.put('/:id', (req, res) => {
