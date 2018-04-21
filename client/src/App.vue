@@ -24,4 +24,10 @@ export default {
   color: #2c3e50;
   /* margin-top: 60px; */
 }
+
+.btn-razz{
+  background: rgb(255, 207, 11);
+  color:black;
+    border-radius: 40px;
+}
 </style>

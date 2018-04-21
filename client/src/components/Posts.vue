@@ -31,13 +31,24 @@
     <div>
       <h3 class='no-margin'>Here is the full list of prizes that you can win.</h3>
     </div>
-    <div>
+    <!-- <div>
       <div v-for="prize in prizes" :key="prize._id">
         <h4>{{prize.name}}</h4>
         <p>{{prize.description}}</p>
         <img :src="prize.image_url" alt="">
       </div>
-    </div>
+    </div> -->
+      <b-card v-for="prize in prizes"  :key="prize._id" title="Card Title"
+          img-alt="Image"
+          img-top
+          tag="article"
+          style="max-width: 20rem;"
+          class="mb-2">
+    <p class="card-text">
+      {{prize.description}}
+    </p>
+    <b-button href="#" variant="razz">Redeem</b-button>
+  </b-card>
   </div>
 
 </template>
@@ -76,6 +87,10 @@ export default {
   height:65vh;
   background-color:#f3f3f3;
   margin: 0 auto;
+}
+
+b-button{
+  background-color: rgb(255, 207, 11);
 }
 
 .no-margin{
