@@ -1,5 +1,7 @@
 <template>
-    <div class="col-8">Hello</div>
+    <div class="header-container">
+        <h4>Rewards</h4>
+    </div>
 </template>
 
 <script>
@@ -8,7 +10,13 @@ export default {
 }
 </script>
 <style type="text/css">
-    div{
-        background-color: blue;
+    .header-container{
+        width:70%;
+        height:35%;
+        background-color: #0274bb;
+        margin:0 auto;
+    }
+    h4{
+        color:white;
     }
 </style>
