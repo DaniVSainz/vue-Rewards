@@ -9,6 +9,12 @@
           <textarea rows="15" cols="15" placeholder="DESCRIPTION" v-model="description"></textarea>
         </div>
         <div>
+          <input type="text" name="name" placeholder="Quantity" v-model="Quantity">
+        </div>
+        <div>
+          <input type="text" name="name" placeholder="Name" v-model="name">
+        </div>
+        <div>
           <button class="app_post_btn" @click="addPost">Add</button>
         </div>
       </div>

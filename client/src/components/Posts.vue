@@ -1,5 +1,6 @@
 <template>
-  <div class="posts">
+
+  <!-- <div class="posts">
     <h1>Posts</h1>
     <div v-if="posts.length > 0" class="table-wrap">
       <div>
@@ -25,7 +26,13 @@
       There are no posts.. Lets add one now <br /><br />
       <router-link v-bind:to="{ name: 'NewPost' }" class="add_post_link">Add Post</router-link>
     </div>
+  </div> -->
+  <div class="prizes">
+    <div>
+      <h3 class='no-margin'>Here is the full list of prizes that you can win.</h3>
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -54,6 +61,18 @@ export default {
 }
 </script>
 <style type="text/css">
+
+.prizes{
+  width:70%;
+  height:65vh;
+  background-color:#f3f3f3;
+  margin: 0 auto;
+}
+
+.no-margin{
+  margin:0;
+}
+
 .table-wrap {
   width: 60%;
   margin: 0 auto;

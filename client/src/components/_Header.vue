@@ -1,6 +1,11 @@
 <template>
     <div class="header-container">
-        <h4>Rewards</h4>
+        <div >
+            <img src="~../assets/logo-razz.png" alt="">
+        </div>
+        <div class='rewards'>
+            <h4>Rewards</h4>
+        </div>
     </div>
 </template>
 
@@ -13,8 +18,12 @@ export default {
     .header-container{
         width:70%;
         height:35%;
-        background-color: #0274bb;
+        /* background-color: #0274bb; */
         margin:0 auto;
+    }
+    .rewards{
+        height:35%;
+        background-color: #0274bb;
     }
     h4{
         color:white;
