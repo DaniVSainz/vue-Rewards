@@ -5,11 +5,11 @@ const Prize = require("../models/Prize");
 
 
 router.post('/new', (req, res, next) => {
-    let title = req.body.title;
+    let name = req.body.name;
     let description = req.body.description;
     console.log(req);
     let new_post = new Prize({
-        title: title,
+        name: name,
         description: description
     })
 
@@ -25,8 +25,9 @@ router.post('/new', (req, res, next) => {
 });
 
 router.get('/', (req, res) => {
-    Prize.find({}, 'title description', function (error, posts) {
+    Prize.find({}, function (error, posts) {
       if (error) { console.error(error); }
+      console.log(posts);
       res.send({
         posts: posts
       })
@@ -35,10 +36,10 @@ router.get('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
     var db = req.db;
-    Prize.findById(req.params.id, 'title description', function (error, post) {
+    Prize.findById(req.params.id, 'name description', function (error, post) {
       if (error) { console.error(error); }
   
-      post.title = req.body.title
+      post.name = req.body.name
       post.description = req.body.description
       post.save(function (error) {
         if (error) {
@@ -54,7 +55,7 @@ router.put('/:id', (req, res) => {
   // Fetch single post
 router.get('/:id', (req, res) => {
   var db = req.db;
-  Prize.findById(req.params.id, 'title description', function (error, post) {
+  Prize.findById(req.params.id, 'name description', function (error, post) {
     if (error) { console.error(error); }
     res.send(post)
   })

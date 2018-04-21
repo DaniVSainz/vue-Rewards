@@ -12,7 +12,7 @@
           <td width="100" align="center">Action</td>
         </tr>
         <tr v-for="post in posts" :key="post._id">
-          <td>{{ post.title }}</td>
+          <td>{{ post.name }}</td>
           <td>{{ post.description }}</td>
           <td align="center">
             <router-link v-bind:to="{ name: 'EditPost', params: { id: post._id } }">Edit</router-link> |
@@ -40,14 +40,12 @@ export default {
   },
   mounted () {
     this.getPosts()
-    console.log('====================================')
-    console.log('Navigated to posts')
-    console.log('====================================')
   },
   methods: {
     async getPosts () {
       const response = await PostsService.fetchPosts()
       this.posts = response.data.posts
+      console.log(this.posts)
     },
     async deletePost (id) {
       await PostsService.deletePost(id)

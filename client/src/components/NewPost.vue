@@ -3,7 +3,7 @@
     <h1>Add Post</h1>
       <div class="form">
         <div>
-          <input type="text" name="title" placeholder="TITLE" v-model="title">
+          <input type="text" name="name" placeholder="Name" v-model="name">
         </div>
         <div>
           <textarea rows="15" cols="15" placeholder="DESCRIPTION" v-model="description"></textarea>
@@ -29,7 +29,7 @@ export default {
   methods: {
     async addPost () {
       await PostsService.addPost({
-        title: this.title,
+        name: this.name,
         description: this.description
       })
       this.$router.push({ name: 'Posts' })
