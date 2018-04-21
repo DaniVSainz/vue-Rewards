@@ -45,11 +45,10 @@ export default {
     async getPosts () {
       const response = await PostsService.fetchPosts()
       this.posts = response.data.posts
-      console.log(this.posts)
     },
     async deletePost (id) {
       await PostsService.deletePost(id)
-      this.$router.push({ name: 'Posts' })
+      this.getPosts()
     }
   }
 }

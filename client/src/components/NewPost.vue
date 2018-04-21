@@ -22,7 +22,7 @@ export default {
   name: 'NewPost',
   data () {
     return {
-      title: '',
+      name: '',
       description: ''
     }
   },
