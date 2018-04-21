@@ -57,6 +57,43 @@ router.put('/:id', (req, res) => {
     })
 })
 
+router.get('/seeddata', async(req,res,next)=>{
+  try{
+    await Prize.collection.drop();
+    let urls = [
+      'https://i.imgur.com/Y7H4c44.png',
+      'https://i.imgur.com/DoC4xCh.png',
+      'https://i.imgur.com/ovRHwJf.png',
+      'https://i.imgur.com/vjLMii9.png',
+      'https://i.imgur.com/mgCAhJL.png',
+      'https://i.imgur.com/SM8tTO7.png'
+    ]
+    let name = 'Win a Flyaway';
+    let description = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum turpis risus, sed elementum lacus laoreet nec.
+     Nulla pulvinar turpis vitae accumsan ultrices. Donec rutrum porta dui, sit amet pharetra quam tristique eget. Aliquam dolor justo, condimentum
+      a nibh nec, porta ultricies augue. Sed convallis venenatis vestibulum`
+    let quantity =5;
+    let newPrize;
+  
+    for(let i =0; i<urls.length;i++){
+      newPrize = new Prize({
+        name,
+        description,
+        image_url: urls[i].image_url,
+        quantity
+      });
+      
+      await newPrize.save();
+    }
+
+    res.send({msg:'Success'});
+  }catch(err){
+    console.log(err);
+    next(err);
+  }
+
+})
+
   // Fetch single post
 router.get('/:id', (req, res) => {
   var db = req.db;

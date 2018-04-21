@@ -28,6 +28,6 @@ export default {
 .btn-razz{
   background: rgb(255, 207, 11);
   color:black;
-    border-radius: 40px;
+  border-radius: 40px;
 }
 </style>

@@ -38,15 +38,15 @@
         <img :src="prize.image_url" alt="">
       </div>
     </div> -->
-      <b-card v-for="prize in prizes"  :key="prize._id" title="Card Title"
-          img-alt="Image"
-          img-top
-          tag="article"
-          style="max-width: 20rem;"
-          class="mb-2">
-    <p class="card-text">
-      {{prize.description}}
-    </p>
+    <b-card v-for="prize in prizes"  :key="prize._id" title="Card Title"
+      :img-src='prize.image_url'
+      img-alt="Image"
+      img-top
+      tag="article"
+      style="max-width: 20rem;"
+      class="mb-2"
+    >
+    <h3>{{prize.name}}</h3>
     <b-button href="#" variant="razz">Redeem</b-button>
   </b-card>
   </div>
