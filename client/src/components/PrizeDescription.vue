@@ -20,6 +20,9 @@
         <!-- Modal Component -->
         <b-modal id="modal1" ref="areYouSureModal" no-fade centered header-border-variant='border:none;'>
           <h4 class="card-title">Are you Sure?</h4>
+          <div class="circular--landscape">
+            <b-img v-bind:src='image_url' rounded="circle"  alt="img" />
+          </div>
           <div slot='modal-footer'>
           <b-btn v-b-modal.modal2  @click="claimPrize" variant='razz'>Launch demo modal</b-btn>
             <b-button variant="gray" @click="hideModal" >Cancel</b-button>
@@ -98,5 +101,19 @@ export default {
 .row-box{
   display:flex;
   margin:0 auto;
+}
+.circular--landscape {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.circular--landscape img {
+  width: auto;
+  height: 100%;
+  margin-left: -50px;
 }
 </style>
