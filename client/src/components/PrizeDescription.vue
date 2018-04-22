@@ -18,9 +18,12 @@
           </p>
         </b-card>
         <!-- Modal Component -->
-        <b-modal id="modal1" no-fade centered header-border-variant='border:none;'>
+        <b-modal id="modal1" ref="areYouSureModal" no-fade centered header-border-variant='border:none;'>
           <h4 class="card-title">Are you Sure?</h4>
+          <div slot='modal-footer'>
           <b-btn v-b-modal.modal2  @click="claimPrize" variant='razz'>Launch demo modal</b-btn>
+            <b-button variant="gray" @click="hideModal" >Cancel</b-button>
+          </div>
         </b-modal>
         <b-modal id="modal2" no-fade centered>
           <h4>Are you Sure?</h4>
@@ -75,6 +78,9 @@ export default {
     },
     async claimPrize () {
       await PostsService.claimPrize(this.id)
+    },
+    hideModal () {
+      this.$refs.areYouSureModal.hide()
     }
   }
 }
