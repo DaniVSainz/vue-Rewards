@@ -33,4 +33,9 @@ export default {
   color:black;
   border-radius: 40px;
 }
+
+.modal-backdrop{
+  width: 70%;
+  margin: 0 auto;
+}
 </style>

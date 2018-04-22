@@ -18,11 +18,11 @@
           </p>
         </b-card>
         <!-- Modal Component -->
-        <b-modal id="modal1" centered>
+        <b-modal id="modal1" no-fade hide-backdrop='true' centered>
           <h4>Are you Sure?</h4>
-          <b-btn v-b-modal.modal2 @click="claimPrize" variant='razz'>Launch demo modal</b-btn>
+          <b-btn v-b-modal.modal2  @click="claimPrize" variant='razz'>Launch demo modal</b-btn>
         </b-modal>
-        <b-modal id="modal2" centered>
+        <b-modal id="modal2" no-fade centered>
           <h4>Are you Sure?</h4>
           <router-link v-bind:to="'/'">
             <b-button variant="razz">Redeem</b-button>
