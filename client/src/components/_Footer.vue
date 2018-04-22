@@ -1,9 +1,9 @@
 <template>
     <div class="row">
-    <div class=" col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 footer-container">
-        <a href="">Terms and Conditions</a>
-        <a href="">Privacy Policy</a>
-    </div>
+        <div class=" col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 footer-container">
+            <a href="">Terms and Conditions</a>
+            <a href="">Privacy Policy</a>
+        </div>
     </div>
 </template>
 

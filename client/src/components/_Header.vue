@@ -12,7 +12,7 @@
         <img src="../assets/logo-razz.png" alt="Fake Logo">
     </div>
     <div class='col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 rewards center'>
-        <h4>Rewards</h4>
+        <h4 class="">Rewards</h4>
     </div>
     </div>
 </template>
@@ -26,7 +26,7 @@ export default {
     .logo-container{
         display: flex;
         float: left;
-        height:8vh;
+        height:8.6vh;
         align-items: center;
     }
     img{
@@ -40,11 +40,17 @@ export default {
         margin:0 auto;
     }
     .rewards{
-        height: 20vh;
+        height: 20.3vh;
         background-color: #0274bb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     h4{
+        font-family: sans-serif;
         color:white;
+        font-size:2rem;
+        font-weight: 800;
     }
     .center{
         margin:0 auto;

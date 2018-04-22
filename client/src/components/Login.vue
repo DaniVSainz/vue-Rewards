@@ -6,9 +6,9 @@
       <p>{{ error }}</p>
     </div>
     <div class="form-group">
-      <input 
+      <input
         type="text"
-        data-id="login.username" 
+        data-id="login.username"
         class="form-control js-login__username"
         placeholder="Enter your username"
         v-model="credentials.username"
@@ -22,9 +22,9 @@
         v-model="credentials.password"
       >
     </div>
-    <button 
+    <button
       data-id="login.submit"
-      class="btn btn-primary solid blank js-login__submit" 
+      class="btn btn-primary solid blank js-login__submit"
       @click="submit()"
     >
       Login &nbsp; <i class="fa fa-arrow-circle-o-right"></i>
