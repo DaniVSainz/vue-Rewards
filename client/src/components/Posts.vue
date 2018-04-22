@@ -28,16 +28,18 @@
     </div>
   </div> -->
   <div class="prizes">
-    <div>
-      <h3 class='no-margin'>Here is the full list of prizes that you can win.</h3>
+    <div class="prizes-desc">
+      <p class='no-margin'>Here is the full list of prizes that you can win.</p>
     </div>
-    <b-card-group>
+    <!-- <b-card-group> -->
+    <div class="container">
+    <div class="row">
       <b-card v-for="prize in prizes"  :key="prize._id" title="Card Title"
         :img-src='prize.image_url'
         img-alt="Image"
         img-top
         tag="article"
-        style="max-width: 20rem;"
+        style="max-width: 23rem; margin-right:20px;"
         class="mb-2"
       >
       <h3>{{prize.name}}</h3>
@@ -45,7 +47,9 @@
         <b-button variant="razz">Redeem</b-button>
       </router-link>
     </b-card>
-  </b-card-group>
+  </div>
+  <!-- </b-card-group> -->
+  </div>
   </div>
 
 </template>
@@ -78,13 +82,22 @@ export default {
 </script>
 <style type="text/css">
 .prizes {
-  width: 70%;
+  width: 67.5%;
   height: auto;
   background-color: #f3f3f3;
   margin: 0 auto;
 }
+.prizes-desc{
+  height:15.8vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .no-margin {
   margin: 0;
+}
+p{
+  font-size:1.4em;
 }
 </style>
