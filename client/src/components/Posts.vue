@@ -34,18 +34,20 @@
     <!-- <b-card-group> -->
     <div class="container">
     <div class="row">
-      <b-card v-for="prize in prizes"  :key="prize._id" title="Card Title"
+      <b-card v-for="prize in prizes"  :key="prize._id" :title="prize.name"
         :img-src='prize.image_url'
         img-alt="Image"
         img-top
         tag="article"
-        style="max-width: 23rem; margin-right:20px;"
+        style="max-width: 23rem; margin-right:12px;color:black;"
         class="mb-2"
       >
-      <h3>{{prize.name}}</h3>
-      <router-link v-bind:to="'prizes/' + prize._id">
-        <b-button variant="razz">Redeem</b-button>
-      </router-link>
+        <div class="card-body">
+          <!-- <h3>{{}}</h3> -->
+          <router-link v-bind:to="'prizes/' + prize._id">
+            <b-button variant="razz">Redeem</b-button>
+          </router-link>
+        </div>
     </b-card>
   </div>
   <!-- </b-card-group> -->
@@ -81,6 +83,10 @@ export default {
 }
 </script>
 <style type="text/css">
+.card-title{
+  color:black;
+  font-weight: 400;
+}
 .prizes {
   width: 67.5%;
   height: auto;
