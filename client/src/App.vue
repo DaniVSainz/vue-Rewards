@@ -38,4 +38,17 @@ export default {
   width: 70%;
   margin: 0 auto;
 }
+.modal-header{
+  border-bottom:none;
+}
+.modal-footer{
+  border-top:none;
+}
+.close{
+  font-family: initial;
+  font-size:4em;
+  font-weight:100;
+  color:black;
+  opacity:1;
+}
 </style>

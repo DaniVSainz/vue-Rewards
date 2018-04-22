@@ -18,8 +18,8 @@
           </p>
         </b-card>
         <!-- Modal Component -->
-        <b-modal id="modal1" no-fade hide-backdrop='true' centered>
-          <h4>Are you Sure?</h4>
+        <b-modal id="modal1" no-fade centered header-border-variant='border:none;'>
+          <h4 class="card-title">Are you Sure?</h4>
           <b-btn v-b-modal.modal2  @click="claimPrize" variant='razz'>Launch demo modal</b-btn>
         </b-modal>
         <b-modal id="modal2" no-fade centered>
