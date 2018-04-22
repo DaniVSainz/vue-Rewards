@@ -9,7 +9,9 @@
     </div> -->
     <div class="row">
     <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 logo-container center">
-        <img src="../assets/logo-razz.png" alt="Fake Logo">
+        <router-link v-bind:to="'/'">
+            <img src="../assets/logo-razz.png" alt="Fake Logo">
+        </router-link>
     </div>
     <div class='col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 rewards center'>
         <h4 class="">Rewards</h4>
