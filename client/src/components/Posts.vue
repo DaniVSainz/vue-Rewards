@@ -31,7 +31,7 @@
     <div>
       <h3 class='no-margin'>Here is the full list of prizes that you can win.</h3>
     </div>
-      <b-card-group>
+    <b-card-group>
       <b-card v-for="prize in prizes"  :key="prize._id" title="Card Title"
         :img-src='prize.image_url'
         img-alt="Image"
@@ -40,11 +40,11 @@
         style="max-width: 20rem;"
         class="mb-2"
       >
-    <h3>{{prize.name}}</h3>
-    <router-link v-bind:to="'prizes/' + prize._id">
-      <b-button variant="razz">Redeem</b-button>
-    </router-link>
-   </b-card>
+      <h3>{{prize.name}}</h3>
+      <router-link v-bind:to="'prizes/' + prize._id">
+        <b-button variant="razz">Redeem</b-button>
+      </router-link>
+    </b-card>
   </b-card-group>
   </div>
 

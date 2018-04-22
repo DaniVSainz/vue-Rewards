@@ -98,7 +98,7 @@ router.get('/seeddata', async(req,res,next)=>{
   // Fetch single post
 router.get('/:id', (req, res) => {
   var db = req.db;
-  Prize.findById(req.params.id, 'name description', function (error, post) {
+  Prize.findById(req.params.id, '', function (error, post) {
     if (error) { console.error(error); }
     res.send(post)
   })

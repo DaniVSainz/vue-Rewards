@@ -19,6 +19,10 @@ export default {
 
   deletePost (id) {
     return Api().delete('posts/' + id)
+  },
+
+  claimPrize () {
+    Api().put('posts/')
   }
 
 }
