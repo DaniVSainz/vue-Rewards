@@ -25,37 +25,37 @@ export default {
 }
 </script>
 <style type="text/css">
-    .logo-container{
-        display: flex;
-        float: left;
-        height:8.6vh;
-        align-items: center;
-    }
-    img{
-        height: 60%;
-        vertical-align: middle;
-    }
-    .header-container{
-        width:70%;
-        height:35%;
-        /* background-color: #0274bb; */
-        margin:0 auto;
-    }
-    .rewards{
-        height: 20.3vh;
-        background-color: #0274bb;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    h4{
-        font-family: sans-serif;
-        color:white;
-        font-size:2rem;
-        font-weight: 800;
-    }
-    .center{
-        margin:0 auto;
-    }
+.logo-container{
+    display: flex;
+    float: left;
+    height:8.6vh;
+    align-items: center;
+}
+img{
+    height: 60%;
+    vertical-align: middle;
+}
+.header-container{
+    width:70%;
+    height:35%;
+    /* background-color: #0274bb; */
+    margin:0 auto;
+}
+.rewards{
+    height: 20.3vh;
+    background-color: #0274bb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h4{
+    font-family: sans-serif;
+    color:white;
+    font-size:2rem;
+    font-weight: 800;
+}
+.center{
+    margin:0 auto;
+}
 </style>
 

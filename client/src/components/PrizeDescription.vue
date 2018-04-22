@@ -1,28 +1,46 @@
 <template>
   <div class="posts">
+    <div class="container">
+      <div class="row">
+        <div class="row-box">
+
+        <b-img v-bind:src='image_url' style="height:38vh;width:24vw;" fluid alt="Fluid image"  />
+        <b-card text-variant="black" :title="name" style="max-width: 23rem;">
+          <!-- <p class="card-text">
+            With supporting text below as a natural lead-in to additional content.
+          </p> -->
+          <!-- <b-button href="#" variant="razz">Redeem</b-button> -->
+          <hr>
+          <b-btn v-b-modal.modal1 variant='razz'>Launch demo modal</b-btn>
+          <hr>
+          <p>
+            {{quantity}} left in stock
+          </p>
+        </b-card>
+        <!-- Modal Component -->
+        <b-modal id="modal1" centered>
+          <h4>Are you Sure?</h4>
+          <b-btn v-b-modal.modal2 @click="claimPrize" variant='razz'>Launch demo modal</b-btn>
+        </b-modal>
+        <b-modal id="modal2" centered>
+          <h4>Are you Sure?</h4>
+          <router-link v-bind:to="'/'">
+            <b-button variant="razz">Redeem</b-button>
+          </router-link>
+        </b-modal>
+        </div>
+      </div>
+    </div>
     <div class="row">
-      <b-img v-bind:src='image_url' fluid alt="Fluid image"  />
-      <b-card text-variant="black" title="Card Title">
-        <p class="card-text">
-          With supporting text below as a natural lead-in to additional content.
-        </p>
-        <!-- <b-button href="#" variant="razz">Redeem</b-button> -->
-        <b-btn v-b-modal.modal1 variant='razz'>Launch demo modal</b-btn>
+      <hr>
+      <div class="row-box">
+        <h4 class="card-title">
+          Description
+        </h4>
         <p>
-          {{quantity}} left in stock
+          {{description}}
         </p>
-      </b-card>
-      <!-- Modal Component -->
-      <b-modal id="modal1" centered>
-        <h4>Are you Sure?</h4>
-        <b-btn v-b-modal.modal2 @click="claimPrize" variant='razz'>Launch demo modal</b-btn>
-      </b-modal>
-      <b-modal id="modal2" centered>
-        <h4>Are you Sure?</h4>
-        <router-link v-bind:to="'/'">
-          <b-button variant="razz">Redeem</b-button>
-        </router-link>
-      </b-modal>
+      </div>
     </div>
   </div>
 </template>
@@ -65,6 +83,14 @@ export default {
 .posts{
   background-color: #f3f3f3;
   width:70%;
+  margin:0 auto;
+}
+.card-title{
+  color:black;
+  font-weight: 400;
+}
+.row-box{
+  display:flex;
   margin:0 auto;
 }
 </style>
