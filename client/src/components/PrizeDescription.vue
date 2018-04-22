@@ -36,7 +36,8 @@ export default {
       name: '',
       description: '',
       quantity: 0,
-      image_url: ''
+      image_url: '',
+      id: ''
     }
   },
   mounted () {
@@ -52,10 +53,10 @@ export default {
       this.description = response.data.description
       this.quantity = response.data.quantity
       this.image_url = response.data.image_url
+      this.id = response.data._id
     },
-    
     async claimPrize () {
-      await PostsService.claimPrize()
+      await PostsService.claimPrize(this.id)
     }
   }
 }

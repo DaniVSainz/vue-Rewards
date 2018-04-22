@@ -21,8 +21,9 @@ export default {
     return Api().delete('posts/' + id)
   },
 
-  claimPrize () {
-    Api().put('posts/')
+  claimPrize (id) {
+    console.log(id)
+    Api().put('posts/claimprize/' + id)
   }
 
 }

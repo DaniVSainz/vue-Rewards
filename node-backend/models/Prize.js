@@ -5,7 +5,7 @@ var PrizeSchema = new Schema({
   name: String,
   description: String,
   image_url: String,
-  quantity: Number
+  quantity: {type:Number, min:0,}
 });
 
 var Prize = mongoose.model("Post", PrizeSchema);

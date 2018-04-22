@@ -32,7 +32,6 @@ router.post('/new', (req, res, next) => {
 router.get('/', (req, res) => {
     Prize.find({}, function (error, prizes) {
       if (error) { console.error(error); }
-      console.log(prizes);
       res.send({
         prizes
       })
@@ -40,22 +39,17 @@ router.get('/', (req, res) => {
     // .sort({_id:-1})
 });
 
-router.put('/:id', (req, res) => {
-    var db = req.db;
-    Prize.findById(req.params.id, 'name description', function (error, post) {
-      if (error) { console.error(error); }
-  
-      post.name = req.body.name
-      post.description = req.body.description
-      post.save(function (error) {
-        if (error) {
-          console.log(error)
-        }
-        res.send({
-          success: true,
-        })
-      })
-    })
+router.put('/claimprize/:id', async (req, res) => {
+  try{
+    let prize = await Prize.findOne({_id: req.params.id});
+    console.log(prize);
+    prize.quantity = prize.quantity -1 ;
+    await prize.save();
+    console.log(prize);
+    res.send({msg:'Success'});
+  }catch(err){
+
+  }
 })
 
 router.get('/seeddata', async(req,res,next)=>{
@@ -97,7 +91,6 @@ router.get('/seeddata', async(req,res,next)=>{
 
   // Fetch single post
 router.get('/:id', (req, res) => {
-  var db = req.db;
   Prize.findById(req.params.id, '', function (error, post) {
     if (error) { console.error(error); }
     res.send(post)
@@ -105,7 +98,6 @@ router.get('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-  var db = req.db;
   Prize.remove({
     _id: req.params.id
   }, function(err, post){
