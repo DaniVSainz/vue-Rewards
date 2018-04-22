@@ -5,6 +5,7 @@ import Posts from '@/components/Posts'
 import NewPost from '@/components/NewPost'
 import EditPost from '@/components/EditPost'
 import PrizeDescription from '@/components/PrizeDescription'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -35,6 +36,11 @@ export default new Router({
       path: '/prizes/:id',
       name: 'PrizeDescription',
       component: PrizeDescription
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     }
   ]
 })

@@ -46,7 +46,7 @@ router.put('/claimprize/:id', async (req, res) => {
     prize.quantity = prize.quantity -1 ;
     await prize.save();
     console.log(prize);
-    res.send({msg:'Success'});
+    res.send({prize});
   }catch(err){
 
   }

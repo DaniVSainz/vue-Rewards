@@ -1,7 +1,9 @@
 <template>
-    <div class="footer-container">
+    <div class="row">
+    <div class=" col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 footer-container">
         <a href="">Terms and Conditions</a>
         <a href="">Privacy Policy</a>
+    </div>
     </div>
 </template>
 
@@ -12,9 +14,6 @@ export default {
 </script>
 <style type="text/css">
     .footer-container{
-        width:70%;
-        min-height: 35%;
-        /* background-color: #0274bb; */
         margin:0 auto;
         background-color: black;
     }

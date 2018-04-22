@@ -1,11 +1,19 @@
 <template>
-    <div class="header-container">
+    <!-- <div class="header-container">
         <div >
             <img src="../assets/logo-razz.png" alt="">
         </div>
         <div class='rewards'>
             <h4>Rewards</h4>
         </div>
+    </div> -->
+    <div class="row">
+    <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 logo-container center">
+        <img src="../assets/logo-razz.png" alt="Fake Logo">
+    </div>
+    <div class='col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 rewards center'>
+        <h4>Rewards</h4>
+    </div>
     </div>
 </template>
 
@@ -15,6 +23,16 @@ export default {
 }
 </script>
 <style type="text/css">
+    .logo-container{
+        display: flex;
+        float: left;
+        height:8vh;
+        align-items: center;
+    }
+    img{
+        height: 60%;
+        vertical-align: middle;
+    }
     .header-container{
         width:70%;
         height:35%;
@@ -22,10 +40,14 @@ export default {
         margin:0 auto;
     }
     .rewards{
-        height:35%;
+        height: 20vh;
         background-color: #0274bb;
     }
     h4{
         color:white;
     }
+    .center{
+        margin:0 auto;
+    }
 </style>
+
