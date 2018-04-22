@@ -15,10 +15,13 @@
       <!-- Modal Component -->
       <b-modal id="modal1" centered>
         <h4>Are you Sure?</h4>
-        <b-btn v-b-modal.modal2 variant='razz'>Launch demo modal</b-btn>
+        <b-btn v-b-modal.modal2 @click="claimPrize" variant='razz'>Launch demo modal</b-btn>
       </b-modal>
       <b-modal id="modal2" centered>
         <h4>Are you Sure?</h4>
+        <router-link v-bind:to="'/'">
+          <b-button variant="razz">Redeem</b-button>
+        </router-link>
       </b-modal>
     </div>
   </div>
@@ -49,6 +52,10 @@ export default {
       this.description = response.data.description
       this.quantity = response.data.quantity
       this.image_url = response.data.image_url
+    },
+    
+    async claimPrize () {
+      await PostsService.claimPrize()
     }
   }
 }
