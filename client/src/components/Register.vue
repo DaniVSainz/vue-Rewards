@@ -12,7 +12,7 @@
                   height="4px">
       </b-progress>
     </b-alert>
-    <spinner v-show="loggingIn" message="Logging in..."></spinner>
+    <spinner v-show="loggingIn" message="Registering user..."></spinner>
     <p>username: <strong>demouser</strong> <br> password: <strong>testpass</strong></p>
     <div class="form-group">
       <input
