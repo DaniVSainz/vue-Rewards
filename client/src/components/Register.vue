@@ -5,7 +5,7 @@
              variant="warning"
              @dismissed="dismissCountDown=0"
              @dismiss-count-down="countDownChanged">
-      <p>This alert will dismiss after {{dismissCountDown}} seconds...</p>
+      <p>{{error}}</p>
       <b-progress variant="warning"
                   :max="dismissSecs"
                   :value="dismissCountDown"
@@ -38,6 +38,14 @@
         v-model="user.password"
       >
     </div>
+    <div class="form-group">
+      <input
+        type="password"
+        class="form-control"
+        placeholder="Repeat your password"
+        v-model="user.passwordB"
+      >
+    </div>
     <button
       data-id="login.submit"
       class="btn btn-primary solid blank"
@@ -61,6 +69,7 @@ export default {
       user: {
         username: '',
         password: '',
+        passwordB: '',
         email: ''
       },
       loggingIn: false,
@@ -76,24 +85,26 @@ export default {
       const user = {
         username: this.user.username,
         password: this.user.password,
+        passwordB: this.user.passwordB,
         email: this.user.email
       }
       if (!Validator.validateRegister(user)) {
-        console.log('inside')
+        this.error = 'Please fill in all fields'
         this.showAlert()
         this.loggingIn = false
         return false
       }
 
       if (!Validator.validateEmail(user.email)) {
-        console.log('inside')
+        console.log('inside email validator')
+        this.error = 'Please input a valid email'
         this.showAlert()
         this.loggingIn = false
         return false
       }
 
       if (!Validator.validatePassword(user)) {
-        console.log('inside')
+        this.error = `Passwords aren't the same`
         this.showAlert()
         this.loggingIn = false
         return false

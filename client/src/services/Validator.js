@@ -1,6 +1,7 @@
 export default {
   validateRegister (user) {
-    if (user.name === undefined || user.email === undefined || user.username === undefined || user.password === undefined) {
+    // eslint-disable-next-line
+    if (user.email == '' || user.username == '' || user.password == '') {
       return false
     } else {
       return true
@@ -8,7 +9,8 @@ export default {
   },
 
   validatePassword (user) {
-    if (user.password !== user.passwordB) {
+    // eslint-disable-next-line
+    if (user.password != user.passwordB || user.password.length == 0) {
       return false
     } else {
       return true
