@@ -8,26 +8,43 @@
         </div>
     </div> -->
     <div class="row">
-    <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 logo-container center">
-        <router-link v-bind:to="'/'">
-            <img src="../assets/logo-razz.png" alt="Fake Logo">
-        </router-link>
-        <router-link v-bind:to="'/login'">
-            Login
-        </router-link>
-        <router-link v-bind:to="'/register'">
-            Register
-        </router-link>
-    </div>
-    <div class='col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 rewards center'>
-        <h4 class="">Rewards</h4>
-    </div>
+      <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 logo-container center">
+          <router-link v-bind:to="'/'">
+              <img src="../assets/logo-razz.png" alt="Fake Logo">
+          </router-link>
+          <router-link v-bind:to="'/login'">
+              Login
+          </router-link>
+          <router-link v-bind:to="'/register'">
+              Register
+          </router-link>
+          <p style='color:black;'>
+            {{username}}
+          </p>
+      </div>
+      <div class='col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 rewards center'>
+          <h4 class="">Rewards</h4>
+      </div>
     </div>
 </template>
 
 <script>
+import AuthService from '@/services/AuthService'
 export default {
-  name: 'Header'
+  name: 'Header',
+  data () {
+    return {
+      username: null
+    }
+  },
+  mounted () {
+    this.loadUser()
+  },
+  methods: {
+    async loadUser () {
+      this.username = await AuthService.loadUser().user.username
+    }
+  }
 }
 </script>
 <style type="text/css">

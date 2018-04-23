@@ -33,5 +33,10 @@ export default {
   loadToken () {
     const token = localStorage.getItem('id_token')
     this.authToken = token
+  },
+
+  loadUser () {
+    this.user = JSON.parse(localStorage.getItem('user'));
+    return {user: this.user}
   }
 }
