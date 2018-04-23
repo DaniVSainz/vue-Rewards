@@ -84,9 +84,6 @@ export default {
     font-size:2rem;
     font-weight: 800;
 }
-.center{
-    margin:0 auto;
-}
 .user-or-register{
   vertical-align: middle;
 }

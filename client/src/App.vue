@@ -54,7 +54,10 @@ export default {
   opacity:1;
 }
 html, body {
-    max-width: 100%;
+    /* max-width: 100%; */
     overflow-x: hidden;
+}
+.center{
+    margin:0 auto;
 }
 </style>

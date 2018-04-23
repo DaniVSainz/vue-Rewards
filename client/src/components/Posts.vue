@@ -1,28 +1,30 @@
 <template>
-  <div class="prizes">
-    <div class="prizes-desc">
-      <p class='no-margin'>Here is the full list of prizes that you can win.</p>
+  <div class="">
+    <div class="row">
+      <p class='col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 center gray'>Here is the full list of prizes that you can win.</p>
     </div>
 
-    <div class="container">
     <div class="row">
-      <b-card v-for="prize in prizes"  :key="prize._id" :title="`Win a ` + prize.name"
-        :img-src='prize.image_url'
-        img-alt="Image"
-        img-top
-        tag="article"
-        style="max-width: 23rem; margin-right:12px;color:black;"
-        class="mb-2"
-      >
-        <div class="card-body">
-          <router-link v-bind:to="'prizes/' + prize._id">
-            <b-button variant="razz">Redeem ></b-button>
-          </router-link>
-        </div>
-    </b-card>
+      <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 center gray">
+        <b-card-group columns>
+          <b-card v-for="prize in prizes"  :key="prize._id" :title="`Win a ` + prize.name"
+            :img-src='prize.image_url'
+            img-alt="Image"
+            img-top
+            tag="article"
+            style="max-width: 23rem; margin-right:12px;color:black;"
+            class="mb-2"
+          >
+            <div class="card-body">
+              <router-link v-bind:to="'prizes/' + prize._id">
+                <b-button variant="razz">Redeem ></b-button>
+              </router-link>
+            </div>
+        </b-card>
+      </b-card-group>
+    </div>  
   </div>
 
-  </div>
   </div>
 
 </template>
@@ -57,12 +59,12 @@ export default {
   color:black;
   font-weight: 400;
 }
-.prizes {
+/* .prizes {
   width: 67.5%;
   height: auto;
   background-color: #f3f3f3;
   margin: 0 auto;
-}
+} */
 .prizes-desc{
   height:15.8vh;
   display: flex;
@@ -75,5 +77,8 @@ export default {
 }
 p{
   font-size:1.4em;
+}
+.gray{
+    background-color: #f3f3f3;
 }
 </style>

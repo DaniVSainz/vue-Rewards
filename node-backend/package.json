@@ -5,7 +5,8 @@
   "scripts": {
     "build": "",
     "start": "node ./bin/www",
-    "startDev": " cd../client && node build/build.js && cd../node-backend && node bin/www"
+    "startDev": "cd../client && node build/build.js && cd../node-backend && node bin/www",
+    "startDev2": "concurrently \"nodemon bin/www\" \"cd../client && npm run dev\""
   },
   "dependencies": {
     "typescript": "~2.4.2",
