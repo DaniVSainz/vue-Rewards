@@ -65,9 +65,21 @@ router.get('/', (req, res) => {
 //   }
 // });
 
-router.put('/claimprize/:id', passport.authenticate('jwt', {session:false}), (req, res, next) => {
+router.put('/claimprize/:id', passport.authenticate('jwt', {session:false}), async (req, res, next) => {
   try{
-    res.status(200).send({claimPrizes:`Ran into error`,msg:'Hi'});
+    let prize = await Prize.findOne({_id: req.params.id});
+    if(prize.quantity > 0 ){
+      prize.quantity = prize.quantity -1 ;
+      await prize.save((err)=>{
+        if(err){
+          return res.status(500).send({claimPrizeRes: 'Ran into Error,Sorry :(', msg:err});
+        }else{
+          return res.status(200).send({claimPrizeRes: 'Congratulations', msg:`You redeemed ${prize.name}.`});
+        }
+      });
+    }else if(prize.quantity == 0){
+      return res.status(200).send({claimPrizeRes: 'Out of Stock', msg:`Sorry try another prize, ${prize.name} is out of stock.`});
+    }
   }catch (err){
     res.status(500).send({claimPrizes:`Ran into error`,msg:err});
     next(err);
