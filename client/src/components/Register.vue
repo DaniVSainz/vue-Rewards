@@ -31,10 +31,10 @@
     </div>
     <button
       data-id="login.submit"
-      class="btn btn-primary solid blank js-login__submit"
+      class="btn btn-primary solid blank"
       @click="submit()"
     >
-      Login &nbsp; <i class="fa fa-arrow-circle-o-right"></i>
+      Register &nbsp; <i class="fa fa-arrow-circle-o-right"></i>
     </button>
     <br><br><br>
   </div>
@@ -50,7 +50,8 @@ export default {
     return {
       user: {
         username: '',
-        password: ''
+        password: '',
+        email: ''
       },
       loggingIn: false,
       error: ''
@@ -59,11 +60,12 @@ export default {
   methods: {
     async submit () {
       this.loggingIn = true
-      const credentials = {
-        username: this.credentials.username,
-        password: this.credentials.password
+      const user = {
+        username: this.user.username,
+        password: this.user.password,
+        email: this.user.email
       }
-      let response = await AuthService.login(credentials)
+      let response = await AuthService.register(user)
       console.log(response)
       this.loggingIn = false
     }

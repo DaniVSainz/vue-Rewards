@@ -6,6 +6,9 @@ export default {
   },
 
   register (params) {
-    return Api().post('users/register', params)
+    return Api().post('users/register', params).catch(error => {
+      console.log(error)
+      return error.response
+    })
   }
 }
