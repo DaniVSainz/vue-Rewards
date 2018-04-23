@@ -85,7 +85,9 @@ export default {
     },
     async claimPrize () {
       const response = await PostsService.claimPrize(this.id)
-      // this.claimPrizeRes = response.
+      console.log(response);
+      this.claimPrizeRes = response.data.claimPrizeRes
+      this.msg = response.data.msg
     },
     hideModal () {
       this.$refs.areYouSureModal.hide()

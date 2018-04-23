@@ -39,18 +39,28 @@ router.get('/', (req, res) => {
     // .sort({_id:-1})
 });
 
-router.put('/claimprize/:id', async (req, res) => {
+
+router.put('/claimprize/:id', async (req, res,next) => {
   try{
     let prize = await Prize.findOne({_id: req.params.id});
-    console.log(prize);
-    prize.quantity = prize.quantity -1 ;
-    await prize.save();
-    console.log(prize);
-    res.send({prize});
+    if(prize.quantity > 0 ){
+      prize.quantity = prize.quantity -1 ;
+      await prize.save((err)=>{
+        if(err){
+          return res.status(500).send({claimPrizeRes: 'Ran into Error,Sorry :(', msg:err});
+        }else{
+          return res.status(200).send({claimPrizeRes: 'Congratulations', msg:`You redeemed ${prize.name}.`});
+        }
+      });
+    }else if(prize.quantity == 0){
+      return res.status(200).send({claimPrizeRes: 'Out of Stock', msg:`Sorry try another prize, ${prize.name} is out of stock.`});
+    }
   }catch(err){
-
+    res.status(500).send({claimPrizes:`Ran into error`,msg:err});
+    next(err);
   }
-})
+});
+
 
 router.get('/seeddata', async(req,res,next)=>{
   try{
