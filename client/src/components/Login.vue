@@ -66,20 +66,20 @@ export default {
   },
   methods: {
     async submit () {
-      console.log('hi')
       this.loggingIn = true
       const credentials = {
         username: this.credentials.username,
         password: this.credentials.password
       }
       let response = await AuthService.login(credentials)
-      console.log(response)
       this.error = response.data.msg
       this.showAlert()
       this.loggingIn = false
       // eslint-disable-next-line
       if (response.status == 200) {
         AuthService.storeUserData(response.data.token, response.data.user)
+        location.reload()
+        this.$router.push({ path: 'Prizes' })
       }
     },
     countDownChanged (dismissCountDown) {

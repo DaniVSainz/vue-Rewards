@@ -1,5 +1,5 @@
 <template>
-    <div class="row">
+    <div class="row" >
       <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 logo-container center">
           <router-link v-bind:to="'/'" >
               <img src="../assets/logo-razz.png" alt="Fake Logo" class="home">

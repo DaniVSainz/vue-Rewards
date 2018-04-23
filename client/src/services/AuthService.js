@@ -53,6 +53,13 @@ export default {
     } else {
       return this.user.username
     }
+  },
+
+  getProfile () {
+    this.loadToken()
+    return Api().get('users/profile', { headers: { Authorization: this.authToken } }).catch(error => {
+      return error.response
+    })
   }
 
 }
