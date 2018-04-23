@@ -76,7 +76,6 @@ export default {
       error: '',
       dismissSecs: 10,
       dismissCountDown: 0,
-      showDismissibleAlert: false
     }
   },
   methods: {

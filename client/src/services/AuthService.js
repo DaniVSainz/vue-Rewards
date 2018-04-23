@@ -10,7 +10,10 @@ export default {
   },
 
   login (params) {
-    return Api().post('users/authenticate', params)
+    return Api().post('users/authenticate', params).catch(error => {
+      console.log(error)
+      return error.response
+    })
   },
 
   register (params) {
