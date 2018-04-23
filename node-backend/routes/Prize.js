@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-
+const passport = require('passport');
+const config = require('../config/database');
 const Prize = require("../models/Prize");
 
-
+//Old method when beginning developement
 router.post('/new', (req, res, next) => {
     let name = req.body.name;
     let description = req.body.description;
@@ -29,6 +30,8 @@ router.post('/new', (req, res, next) => {
     })
 });
 
+
+//Get all Prizes
 router.get('/', (req, res) => {
     Prize.find({}, function (error, prizes) {
       if (error) { console.error(error); }
@@ -39,29 +42,48 @@ router.get('/', (req, res) => {
     // .sort({_id:-1})
 });
 
+//Try claiming a prize
+// router.put('/claimprize/:id', async (req, res,next) => {
+//   try{
+//     let prize = await Prize.findOne({_id: req.params.id});
+//     if(prize.quantity > 0 ){
+//       prize.quantity = prize.quantity -1 ;
+//       await prize.save((err)=>{
+//         if(err){
+//           return res.status(500).send({claimPrizeRes: 'Ran into Error,Sorry :(', msg:err});
+//         }else{
+//           return res.status(200).send({claimPrizeRes: 'Congratulations', msg:`You redeemed ${prize.name}.`});
+//         }
+//       });
+//     }else if(prize.quantity == 0){
+//       return res.status(200).send({claimPrizeRes: 'Out of Stock', msg:`Sorry try another prize, ${prize.name} is out of stock.`});
+//     }
+//   }catch(err){
+//     res.status(500).send({claimPrizes:`Ran into error`,msg:err});
+//     next(err);
+//   }
+// });
 
-router.put('/claimprize/:id', async (req, res,next) => {
+router.put('/claimprize/:id', passport.authenticate('jwt', {session:false}), async (req, res, next) => {
   try{
-    let prize = await Prize.findOne({_id: req.params.id});
-    if(prize.quantity > 0 ){
-      prize.quantity = prize.quantity -1 ;
-      await prize.save((err)=>{
-        if(err){
-          return res.status(500).send({claimPrizeRes: 'Ran into Error,Sorry :(', msg:err});
-        }else{
-          return res.status(200).send({claimPrizeRes: 'Congratulations', msg:`You redeemed ${prize.name}.`});
-        }
-      });
-    }else if(prize.quantity == 0){
-      return res.status(200).send({claimPrizeRes: 'Out of Stock', msg:`Sorry try another prize, ${prize.name} is out of stock.`});
+    let tempUser = req.user;
+    let user = {
+      name: tempUser.name,
+      email: tempUser.email,
+      username: tempUser.username,
+      isVerified: tempUser.isVerified
     }
-  }catch(err){
+    res.status(200).send({user, msg:'Success'});
+  }catch (err){
     res.status(500).send({claimPrizes:`Ran into error`,msg:err});
     next(err);
   }
 });
 
 
+
+
+//Method to clear db / seed data
 router.get('/seeddata', async(req,res,next)=>{
   try{
     await Prize.collection.drop();
@@ -123,7 +145,7 @@ router.get('/seeddata', async(req,res,next)=>{
 
 })
 
-  // Fetch single post
+// Fetch single prize
 router.get('/:id', (req, res) => {
   Prize.findById(req.params.id, '', function (error, post) {
     if (error) { console.error(error); }
@@ -131,6 +153,7 @@ router.get('/:id', (req, res) => {
   })
 })
 
+//Delete a prize
 router.delete('/:id', (req, res) => {
   Prize.remove({
     _id: req.params.id

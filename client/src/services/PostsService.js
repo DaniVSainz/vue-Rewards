@@ -24,6 +24,15 @@ export default {
   claimPrize (id) {
     console.log(id)
     return Api().put('posts/claimprize/' + id).catch(error => {
+      // eslint-disable-next-line
+      if (error.response.data == 'Unauthorized') {
+        return {response: {
+          data: {
+            claimPrizeRes: 'Please login to claim a Prize',
+            msg: `You're not logged in`
+          }
+        }}
+      }
       return error.response
     })
   }
