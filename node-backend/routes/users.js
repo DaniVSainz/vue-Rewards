@@ -81,7 +81,7 @@ router.post('/authenticate', (req, res, next) => {
       return res.status(400).send({success: false, msg: 'Incorrect username or password'});
     }
     if(user.isVerified == false){
-      return res.status(400).send({success: false, isVerified:false, msg: `Email is not verified, please cheack your email for a verification link.`})
+      return res.status(400).send({success: false, isVerified:false, msg: `Email is not verified, please check your email for a verification link.`})
     }
     User.comparePassword(password, user.password, (err, isMatch) => {
       if(err) throw err;
