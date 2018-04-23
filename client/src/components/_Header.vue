@@ -17,6 +17,9 @@
             <b-button @click="logOut()" class="user-or-register">
               Logout
             </b-button>
+            <b-button @click="getProfile()" class="user-or-register">
+              Profile
+            </b-button>
           </div>
       </div>
       <div class='col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 rewards center'>
@@ -43,6 +46,9 @@ export default {
     },
     logOut () {
       AuthService.logOut()
+    },
+    async getProfile () {
+      console.log(await AuthService.getProfile())
     }
   }
 }

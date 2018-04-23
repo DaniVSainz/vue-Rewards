@@ -3,6 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 const config = require('../config/database');
 const Prize = require("../models/Prize");
+const User = require('../models/user');
 
 //Old method when beginning developement
 router.post('/new', (req, res, next) => {
@@ -64,16 +65,9 @@ router.get('/', (req, res) => {
 //   }
 // });
 
-router.put('/claimprize/:id', passport.authenticate('jwt', {session:false}), async (req, res, next) => {
+router.put('/claimprize/:id', passport.authenticate('jwt', {session:false}), (req, res, next) => {
   try{
-    let tempUser = req.user;
-    let user = {
-      name: tempUser.name,
-      email: tempUser.email,
-      username: tempUser.username,
-      isVerified: tempUser.isVerified
-    }
-    res.status(200).send({user, msg:'Success'});
+    res.status(200).send({claimPrizes:`Ran into error`,msg:'Hi'});
   }catch (err){
     res.status(500).send({claimPrizes:`Ran into error`,msg:err});
     next(err);

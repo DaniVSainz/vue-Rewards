@@ -1,4 +1,5 @@
 import Api from '@/services/Api'
+import AuthService from '@/services/AuthService'
 
 export default {
   fetchPosts () {
@@ -21,19 +22,20 @@ export default {
     return Api().delete('posts/' + id)
   },
 
-  claimPrize (id) {
-    console.log(id)
-    return Api().put('posts/claimprize/' + id).catch(error => {
+  async claimPrize (id) {
+    await AuthService.loadToken()
+    return Api().put('posts/claimprize/' + id, null, { headers: { Authorization: AuthService.authToken } }).catch(error => {
       // eslint-disable-next-line
       if (error.response.data == 'Unauthorized') {
-        return {response: {
+        return {
           data: {
             claimPrizeRes: 'Please login to claim a Prize',
             msg: `You're not logged in`
           }
-        }}
+        }
+      } else {
+        return error.response
       }
-      return error.response
     })
   }
 

@@ -57,6 +57,7 @@ export default {
 
   getProfile () {
     this.loadToken()
+    console.log(this.authToken)
     return Api().get('users/profile', { headers: { Authorization: this.authToken } }).catch(error => {
       return error.response
     })
