@@ -63,7 +63,7 @@ export default {
       // error_description (if exists) as shown below:
       this.$auth.login(credentials, 'dashboard').then((response) => {
         this.loggingIn = false
-        this.error = utils.getError(response)
+        // this.error = utils.getError(response)
       })
     }
   }

@@ -25,7 +25,7 @@ export default {
     console.log(id)
     return Api().put('posts/claimprize/' + id).catch(error => {
       return error.response
-    });
+    })
   }
 
 }

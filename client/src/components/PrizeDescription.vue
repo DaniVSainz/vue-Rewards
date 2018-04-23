@@ -27,7 +27,7 @@
               <b-button variant="gray" @click="hideModal" >Cancel</b-button>
           </div>
         </b-modal>
-        <b-modal id="modal2" hide-footer='true' no-fade centered>
+        <b-modal id="modal2" hide-footer no-fade centered>
           <h4 class="card-title">{{claimPrizeRes}}</h4>
           <p>
             {{msg}}
@@ -64,8 +64,8 @@ export default {
       quantity: 0,
       image_url: '',
       id: '',
-      claimPrizeRes:'Loading....',
-      msg:'Claiming Your Prize'
+      claimPrizeRes: 'Loading....',
+      msg: 'Claiming Your Prize'
     }
   },
   mounted () {
@@ -76,7 +76,6 @@ export default {
       const response = await PostsService.getPost({
         id: this.$route.params.id
       })
-      console.log(response)
       this.name = response.data.name
       this.description = response.data.description
       this.quantity = response.data.quantity
@@ -85,7 +84,6 @@ export default {
     },
     async claimPrize () {
       const response = await PostsService.claimPrize(this.id)
-      console.log(response);
       this.claimPrizeRes = response.data.claimPrizeRes
       this.msg = response.data.msg
     },
