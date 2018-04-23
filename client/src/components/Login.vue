@@ -18,7 +18,7 @@
       <input
         type="text"
         data-id="login.username"
-        class="form-control js-login__username"
+        class="form-control"
         placeholder="Enter your username"
         v-model="credentials.username"
       >
@@ -26,20 +26,20 @@
     <div class="form-group">
       <input
         type="password"
-        class="form-control js-login__password "
+        class="form-control"
         placeholder="Enter your password"
         v-model="credentials.password"
       >
     </div>
     <button
       data-id="login.submit"
-      class="btn btn-primary solid blank js-login__submit"
+      class="btn btn-primary solid blank"
       @click="submit()"
     >
       Login &nbsp; <i class="fa fa-arrow-circle-o-right"></i>
     </button>
     <br><br><br>
-    Don’t have an account? &nbsp;       
+    Don’t have an account? &nbsp;
     <router-link v-bind:to="'/register'">
       Register
     </router-link>
@@ -66,6 +66,7 @@ export default {
   },
   methods: {
     async submit () {
+      console.log('hi')
       this.loggingIn = true
       const credentials = {
         username: this.credentials.username,

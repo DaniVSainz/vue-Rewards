@@ -32,7 +32,6 @@ export default {
       description: '',
       quantity: 0,
       image_url: ''
-
     }
   },
   methods: {

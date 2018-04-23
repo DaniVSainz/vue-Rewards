@@ -37,6 +37,10 @@ export default {
 
   loadUser () {
     this.user = JSON.parse(localStorage.getItem('user'))
-    return {user: this.user}
+    if (this.user == null) {
+      return this.user
+    } else {
+      return this.user.username
+    }
   }
 }

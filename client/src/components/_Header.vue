@@ -4,15 +4,17 @@
           <router-link v-bind:to="'/'" >
               <img src="../assets/logo-razz.png" alt="Fake Logo" class="home">
           </router-link>
-          <router-link v-bind:to="'/login'">
+          <div style='height:auto;display:flex;' >
+            <router-link v-bind:to="'/login'" class="user-or-register">
               Login
-          </router-link>
-          <router-link v-bind:to="'/register'">
+            </router-link>
+            <router-link v-bind:to="'/register'" class="user-or-register">
               Register
-          </router-link>
-          <p style='color:black;'>
-            {{username}}
-          </p>
+            </router-link>
+            <p style='color:black;' class="user-or-register">
+              {{username}}
+            </p>
+          </div>
       </div>
       <div class='col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 rewards center'>
           <h4 class="rewards-header">Rewards</h4>
@@ -34,7 +36,7 @@ export default {
   },
   methods: {
     async loadUser () {
-      this.username = await AuthService.loadUser().user.username
+      this.username = await AuthService.loadUser()
     }
   }
 }
@@ -72,5 +74,8 @@ export default {
 }
 .center{
     margin:0 auto;
+}
+.user-or-register{
+  vertical-align: middle;
 }
 </style>
