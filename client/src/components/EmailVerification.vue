@@ -13,6 +13,14 @@
                   height="4px">
       </b-progress>
     </b-alert>
+    <div>
+      <router-link v-bind:to="'/login'" class="user-or-register">
+        Login
+      </router-link>
+      <router-link v-bind:to="'/register'" class="user-or-register">
+        Register
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -46,7 +54,8 @@ export default {
     },
     async verifyEmail () {
       const response = await AuthService.verifyEmail(this.token)
-      console.log(response)
+      this.msg = response.data.msg
+      this.showAlert()
     }
   }
 }

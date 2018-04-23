@@ -14,6 +14,9 @@
             <p style='color:black;' class="user-or-register">
               {{username}}
             </p>
+            <b-button @click="logOut()" class="user-or-register">
+              Logout
+            </b-button>
           </div>
       </div>
       <div class='col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 rewards center'>
@@ -37,6 +40,9 @@ export default {
   methods: {
     async loadUser () {
       this.username = await AuthService.loadUser()
+    },
+    logOut () {
+      AuthService.logOut()
     }
   }
 }

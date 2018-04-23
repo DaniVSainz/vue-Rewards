@@ -11,24 +11,27 @@ export default {
 
   login (params) {
     return Api().post('users/authenticate', params).catch(error => {
-      console.log(error)
       return error.response
     })
   },
 
   register (params) {
     return Api().post('users/register', params).catch(error => {
-      console.log(error)
       return error.response
     })
   },
 
   verifyEmail (token) {
-    console.log(`token is ${token}`)
-    return Api().post('confirmation/verifyEmail', {token} ).catch(error => {
-      console.log(error)
+    return Api().post('confirmation/verifyEmail', {token}).catch(error => {
       return error.response
     })
+  },
+
+  logOut () {
+    this.authToken = null
+    this.user = null
+    localStorage.clear()
+    location.reload()
   },
 
   storeUserData (token, user) {
