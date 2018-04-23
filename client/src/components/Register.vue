@@ -40,7 +40,7 @@
 import Spinner from '@/components/common/Spinner'
 import AuthService from '@/services/AuthService'
 export default {
-  name: 'Login',
+  name: 'Register',
   components: { Spinner },
   data () {
     return {

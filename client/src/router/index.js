@@ -6,6 +6,7 @@ import NewPost from '@/components/NewPost'
 import EditPost from '@/components/EditPost'
 import PrizeDescription from '@/components/PrizeDescription'
 import Login from '@/components/Login'
+import Register from '@/components/Register'
 
 Vue.use(Router)
 
@@ -41,6 +42,11 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
     }
   ]
 })

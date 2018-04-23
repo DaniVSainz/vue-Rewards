@@ -63,6 +63,7 @@ router.post('/register', async (req,res,next) => {
 
 // Authenticate
 router.post('/authenticate', (req, res, next) => {
+  console.log(req.body);
   const username = req.body.username;
   const password = req.body.password;
 
