@@ -39,9 +39,10 @@
       Login &nbsp; <i class="fa fa-arrow-circle-o-right"></i>
     </button>
     <br><br><br>
-    <a href="#">Forgot your password?</a><br>
-    Don’t have an account? &nbsp;<a href="#">Sign up here.</a>
-
+    Don’t have an account? &nbsp;       
+    <router-link v-bind:to="'/register'">
+      Register
+    </router-link>
   </div>
 </template>
 

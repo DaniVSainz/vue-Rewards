@@ -1,16 +1,8 @@
 <template>
-    <!-- <div class="header-container">
-        <div >
-            <img src="../assets/logo-razz.png" alt="">
-        </div>
-        <div class='rewards'>
-            <h4>Rewards</h4>
-        </div>
-    </div> -->
     <div class="row">
       <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 logo-container center">
-          <router-link v-bind:to="'/'">
-              <img src="../assets/logo-razz.png" alt="Fake Logo">
+          <router-link v-bind:to="'/'" >
+              <img src="../assets/logo-razz.png" alt="Fake Logo" class="home">
           </router-link>
           <router-link v-bind:to="'/login'">
               Login
@@ -23,7 +15,7 @@
           </p>
       </div>
       <div class='col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 rewards center'>
-          <h4 class="">Rewards</h4>
+          <h4 class="rewards-header">Rewards</h4>
       </div>
     </div>
 </template>
@@ -54,9 +46,10 @@ export default {
     height:8.6vh;
     align-items: center;
 }
-img{
-    height: 60%;
+.home{
+    height: 3em;
     vertical-align: middle;
+    margin-left: 0.8em;
 }
 .header-container{
     width:70%;
@@ -71,7 +64,7 @@ img{
     align-items: center;
     justify-content: center;
 }
-h4{
+.rewards-header{
     font-family: sans-serif;
     color:white;
     font-size:2rem;
