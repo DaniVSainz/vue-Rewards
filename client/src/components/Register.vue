@@ -8,18 +8,25 @@
     <div class="form-group">
       <input
         type="text"
-        data-id="login.username"
-        class="form-control js-login__username"
+        class="form-control"
         placeholder="Enter your username"
-        v-model="credentials.username"
+        v-model="user.username"
+      >
+    </div>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your email"
+        v-model="user.email"
       >
     </div>
     <div class="form-group">
       <input
         type="password"
-        class="form-control js-login__password "
+        class="form-control"
         placeholder="Enter your password"
-        v-model="credentials.password"
+        v-model="user.password"
       >
     </div>
     <button
@@ -30,9 +37,6 @@
       Login &nbsp; <i class="fa fa-arrow-circle-o-right"></i>
     </button>
     <br><br><br>
-    <a href="#">Forgot your password?</a><br>
-    Don’t have an account? &nbsp;<a href="#">Sign up here.</a>
-
   </div>
 </template>
 
@@ -44,7 +48,7 @@ export default {
   components: { Spinner },
   data () {
     return {
-      credentials: {
+      user: {
         username: '',
         password: ''
       },
