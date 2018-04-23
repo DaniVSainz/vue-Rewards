@@ -51,4 +51,8 @@ export default {
   color:black;
   opacity:1;
 }
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 </style>

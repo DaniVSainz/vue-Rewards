@@ -34,7 +34,7 @@
     <!-- <b-card-group> -->
     <div class="container">
     <div class="row">
-      <b-card v-for="prize in prizes"  :key="prize._id" :title="prize.name"
+      <b-card v-for="prize in prizes"  :key="prize._id" :title="`Win a ` + prize.name"
         :img-src='prize.image_url'
         img-alt="Image"
         img-top
@@ -45,7 +45,7 @@
         <div class="card-body">
           <!-- <h3>{{}}</h3> -->
           <router-link v-bind:to="'prizes/' + prize._id">
-            <b-button variant="razz">Redeem</b-button>
+            <b-button variant="razz">Redeem ></b-button>
           </router-link>
         </div>
     </b-card>

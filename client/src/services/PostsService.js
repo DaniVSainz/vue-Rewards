@@ -23,7 +23,7 @@ export default {
 
   claimPrize (id) {
     console.log(id)
-    Api().put('posts/claimprize/' + id)
+    return Api().put('posts/claimprize/' + id)
   }
 
 }

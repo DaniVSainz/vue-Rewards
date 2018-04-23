@@ -5,13 +5,9 @@
         <div class="row-box">
 
         <b-img v-bind:src='image_url' style="height:38vh;width:24vw;" fluid alt="Fluid image"  />
-        <b-card text-variant="black" :title="name" style="max-width: 23rem;">
-          <!-- <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p> -->
-          <!-- <b-button href="#" variant="razz">Redeem</b-button> -->
+        <b-card text-variant="black" :title="`Win a ` + name" style="max-width: 23rem;">
           <hr>
-          <b-btn v-b-modal.modal1 variant='razz'>Launch demo modal</b-btn>
+          <b-btn v-b-modal.modal1 variant='razz'>Redeem</b-btn>
           <hr>
           <p>
             {{quantity}} left in stock
@@ -20,18 +16,24 @@
         <!-- Modal Component -->
         <b-modal id="modal1" ref="areYouSureModal" no-fade centered header-border-variant='border:none;'>
           <h4 class="card-title">Are you Sure?</h4>
-          <div class="circular--landscape">
+          <div class="round-image-container">
             <b-img v-bind:src='image_url' rounded="circle"  alt="img" />
           </div>
-          <div slot='modal-footer'>
-          <b-btn v-b-modal.modal2  @click="claimPrize" variant='razz'>Launch demo modal</b-btn>
-            <b-button variant="gray" @click="hideModal" >Cancel</b-button>
+          <p>
+            Redeem for {{name}}?
+          </p>
+          <div slot='modal-footer' class="modal-buttons-div">
+              <b-btn v-b-modal.modal2  @click="claimPrize" variant='razz'>Yes</b-btn>
+              <b-button variant="gray" @click="hideModal" >Cancel</b-button>
           </div>
         </b-modal>
-        <b-modal id="modal2" no-fade centered>
-          <h4>Are you Sure?</h4>
+        <b-modal id="modal2" hide-footer='true' no-fade centered>
+          <h4 class="card-title">{{claimPrizeRes}}</h4>
+          <p>
+            {{msg}}
+          </p>
           <router-link v-bind:to="'/'">
-            <b-button variant="razz">Redeem</b-button>
+            <b-button variant="razz">More Prizes</b-button>
           </router-link>
         </b-modal>
         </div>
@@ -61,7 +63,9 @@ export default {
       description: '',
       quantity: 0,
       image_url: '',
-      id: ''
+      id: '',
+      claimPrizeRes:'Loading....',
+      msg:'Claiming Your Prize'
     }
   },
   mounted () {
@@ -80,7 +84,8 @@ export default {
       this.id = response.data._id
     },
     async claimPrize () {
-      await PostsService.claimPrize(this.id)
+      const response = await PostsService.claimPrize(this.id)
+      // this.claimPrizeRes = response.
     },
     hideModal () {
       this.$refs.areYouSureModal.hide()
@@ -102,7 +107,7 @@ export default {
   display:flex;
   margin:0 auto;
 }
-.circular--landscape {
+.round-image-container {
   display: inline-block;
   position: relative;
   width: 200px;
@@ -111,7 +116,7 @@ export default {
   border-radius: 50%;
 }
 
-.circular--landscape img {
+.round-image-container img {
   width: auto;
   height: 100%;
   margin-left: -50px;
