@@ -1,10 +1,19 @@
 <template>
   <div class="ev-login col-sm-4 offset-sm-4">
+    <b-alert :show="dismissCountDown"
+             dismissible
+             variant="warning"
+             @dismissed="dismissCountDown=0"
+             @dismiss-count-down="countDownChanged">
+      <p>This alert will dismiss after {{dismissCountDown}} seconds...</p>
+      <b-progress variant="warning"
+                  :max="dismissSecs"
+                  :value="dismissCountDown"
+                  height="4px">
+      </b-progress>
+    </b-alert>
     <spinner v-show="loggingIn" message="Logging in..."></spinner>
     <p>username: <strong>demouser</strong> <br> password: <strong>testpass</strong></p>
-    <div class="alert alert-danger" v-if="error">
-      <p>{{ error }}</p>
-    </div>
     <div class="form-group">
       <input
         type="text"
@@ -43,6 +52,7 @@
 <script>
 import Spinner from '@/components/common/Spinner'
 import AuthService from '@/services/AuthService'
+import Validator from '@/services/Validator'
 export default {
   name: 'Register',
   components: { Spinner },
@@ -54,7 +64,10 @@ export default {
         email: ''
       },
       loggingIn: false,
-      error: ''
+      error: '',
+      dismissSecs: 10,
+      dismissCountDown: 0,
+      showDismissibleAlert: false
     }
   },
   methods: {
@@ -65,9 +78,36 @@ export default {
         password: this.user.password,
         email: this.user.email
       }
+      if (!Validator.validateRegister(user)) {
+        console.log('inside')
+        this.showAlert()
+        this.loggingIn = false
+        return false
+      }
+
+      if (!Validator.validateEmail(user.email)) {
+        console.log('inside')
+        this.showAlert()
+        this.loggingIn = false
+        return false
+      }
+
+      if (!Validator.validatePassword(user)) {
+        console.log('inside')
+        this.showAlert()
+        this.loggingIn = false
+        return false
+      }
       let response = await AuthService.register(user)
       console.log(response)
       this.loggingIn = false
+    },
+
+    countDownChanged (dismissCountDown) {
+      this.dismissCountDown = dismissCountDown
+    },
+    showAlert () {
+      this.dismissCountDown = this.dismissSecs
     }
   }
 }
