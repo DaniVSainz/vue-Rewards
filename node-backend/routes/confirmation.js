@@ -8,7 +8,8 @@ var crypto = require('crypto');
 var nodemailer = require('nodemailer');
 
 router.post('/verifyEmail', (req, res, next) => {
-
+    console.log(req.protocol);
+    console.log(req.body.token);
     Token.findOne({ token: req.body.token }, function (err, token) {
         if (!token) return res.status(400).send({ type: 'not-verified', msg: 'We were unable to find a valid token. Your token may have expired.' });
  

@@ -7,6 +7,7 @@ import EditPost from '@/components/EditPost'
 import PrizeDescription from '@/components/PrizeDescription'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
+import EmailVerification from '@/components/EmailVerification'
 
 Vue.use(Router)
 
@@ -47,6 +48,11 @@ export default new Router({
       path: '/register',
       name: 'Register',
       component: Register
+    },
+    {
+      path: '/emailVerification/:token',
+      name: 'EmailVerification',
+      component: EmailVerification
     }
   ]
 })

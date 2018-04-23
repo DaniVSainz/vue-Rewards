@@ -23,6 +23,14 @@ export default {
     })
   },
 
+  verifyEmail (token) {
+    console.log(`token is ${token}`)
+    return Api().post('confirmation/verifyEmail', {token} ).catch(error => {
+      console.log(error)
+      return error.response
+    })
+  },
+
   storeUserData (token, user) {
     localStorage.setItem('id_token', token)
     localStorage.setItem('user', JSON.stringify(user))
@@ -35,7 +43,7 @@ export default {
     this.authToken = token
   },
 
-  loadUser () {
+  loadUser (token) {
     this.user = JSON.parse(localStorage.getItem('user'))
     if (this.user == null) {
       return this.user
@@ -43,4 +51,5 @@ export default {
       return this.user.username
     }
   }
+
 }

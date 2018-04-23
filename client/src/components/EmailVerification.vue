@@ -18,6 +18,7 @@
 
 <script>
 import AuthService from '@/services/AuthService'
+import Spinner from '@/components/common/Spinner'
 export default {
   name: 'EmailVerification',
   components: { Spinner },
@@ -25,7 +26,15 @@ export default {
     return {
       msg: '',
       dismissSecs: 10,
-      dismissCountDown: 0
+      dismissCountDown: 0,
+      token: ''
+    }
+  },
+  mounted () {
+    this.token = this.$route.params.token
+    // eslint-disable-next-line
+    if (this.token != '') {
+      this.verifyEmail()
     }
   },
   methods: {
@@ -34,6 +43,10 @@ export default {
     },
     showAlert () {
       this.dismissCountDown = this.dismissSecs
+    },
+    async verifyEmail () {
+      const response = await AuthService.verifyEmail(this.token)
+      console.log(response)
     }
   }
 }
