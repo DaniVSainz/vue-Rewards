@@ -75,7 +75,7 @@ export default {
       loggingIn: false,
       error: '',
       dismissSecs: 10,
-      dismissCountDown: 0,
+      dismissCountDown: 0
     }
   },
   methods: {
@@ -95,7 +95,6 @@ export default {
       }
 
       if (!Validator.validateEmail(user.email)) {
-        console.log('inside email validator')
         this.error = 'Please input a valid email'
         this.showAlert()
         this.loggingIn = false
@@ -109,7 +108,6 @@ export default {
         return false
       }
       let response = await AuthService.register(user)
-      console.log(response)
       this.error = response.data.msg
       this.showAlert()
       this.loggingIn = false

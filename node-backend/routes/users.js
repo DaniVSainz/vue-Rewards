@@ -72,7 +72,6 @@ router.post('/register', async (req,res,next) => {
 
 // Authenticate
 router.post('/authenticate', (req, res, next) => {
-  console.log(req.body);
   const username = req.body.username;
   const password = req.body.password;
 
@@ -82,7 +81,7 @@ router.post('/authenticate', (req, res, next) => {
       return res.status(400).send({success: false, msg: 'Incorrect username or password'});
     }
     if(user.isVerified == false){
-      return res.status(400).send({success: false, isVerified:false, msg: `Email is not verified, please verify to log in.`})
+      return res.status(400).send({success: false, isVerified:false, msg: `Email is not verified, please cheack your email for a verification link.`})
     }
     User.comparePassword(password, user.password, (err, isMatch) => {
       if(err) throw err;
@@ -121,9 +120,7 @@ router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res,
 });
 
 router.delete('/delete', passport.authenticate('jwt', {session:false}), (req, res, next) => {
-  console.log('Inside delete')
   try{
-    console.log(req.user);
     req.user.remove();
     res.status(200).json({success:'deleted user'});
   }catch (e){

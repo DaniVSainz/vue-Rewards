@@ -60,7 +60,7 @@ export default {
       loggingIn: false,
       error: '',
       dismissSecs: 10,
-      dismissCountDown: 0,
+      dismissCountDown: 0
     }
   },
   methods: {
@@ -75,6 +75,10 @@ export default {
       this.error = response.data.msg
       this.showAlert()
       this.loggingIn = false
+      // eslint-disable-next-line
+      if (response.status == 200) {
+        AuthService.storeUserData(response.data.token, response.data.user)
+      }
     },
     countDownChanged (dismissCountDown) {
       this.dismissCountDown = dismissCountDown
