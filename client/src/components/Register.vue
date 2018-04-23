@@ -111,7 +111,13 @@ export default {
       }
       let response = await AuthService.register(user)
       console.log(response)
+      this.error = response.data.msg
+      this.showAlert()
       this.loggingIn = false
+      // eslint-disable-next-line
+      if (response.status == 200) {
+        AuthService.storeUserData(response.data.token, response.data.user)
+      }
     },
 
     countDownChanged (dismissCountDown) {

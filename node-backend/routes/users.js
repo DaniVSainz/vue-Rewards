@@ -46,15 +46,24 @@ router.post('/register', async (req,res,next) => {
                                 text: `Hello,\n\n  Please verify your account by clicking the link: \n https://${req.headers.host}/emailVerification/${token.token}  \n` };
           transporter.sendMail(mailOptions, function (err) {
               if (err) { return res.status(500).json({ msg: err.message })};
-              res.status(200).json({success: true, msg: "You've successfully registered, please check your email to confirm your email address."});
+              const token = jwt.sign({data: user}, config.secret, {
+                expiresIn: 604800 // 1 week
+              });
+              res.status(200).json({success: true, msg: "You've successfully registered, please check your email to confirm your email address.",
+                token: 'JWT '+token,          
+                user: {
+                  id: user._id,
+                  name: user.name,
+                  username: user.username,
+                  email: user.email
+                }});
           });
         })
       }
     });
 
   } catch (e) {
-    //this will eventually be handled by your error handling middleware
-    // res.json({success: false, msg: `Encountered and Unknown error: ${err}`})
+    res.status(500).send({success: false, msg: `Encountered and Unknown error: ${err}`})
     next(e) 
   }
 })
