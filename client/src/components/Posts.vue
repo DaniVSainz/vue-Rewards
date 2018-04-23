@@ -1,7 +1,9 @@
 <template>
   <div class="">
-    <div class="row">
-      <p class='col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 center gray'>Here is the full list of prizes that you can win.</p>
+    <div class="row" style='height:150px;'>
+      <div class='col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 center gray center-text' >
+        <p style='margin-bottom:0px;'>Here is the full list of prizes that you can win.</p>
+      </div>
     </div>
 
     <div class="row">
@@ -12,8 +14,8 @@
             img-alt="Image"
             img-top
             tag="article"
-            style="max-width: 23rem; margin-right:12px;color:black;"
-            class="mb-2"
+            style="max-width: 23rem;color:black;"
+            class="mb-3"
           >
             <div class="card-body">
               <router-link v-bind:to="'prizes/' + prize._id">
@@ -59,12 +61,11 @@ export default {
   color:black;
   font-weight: 400;
 }
-/* .prizes {
-  width: 67.5%;
-  height: auto;
-  background-color: #f3f3f3;
-  margin: 0 auto;
-} */
+.center-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .prizes-desc{
   height:15.8vh;
   display: flex;
