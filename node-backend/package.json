@@ -4,7 +4,8 @@
   },
   "scripts": {
     "build": "",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "startDev": "concurrently \"nodemon bin./bin/www\" \"cd../client && nodemon build/build.js\""
   },
   "dependencies": {
     "typescript": "~2.4.2",
@@ -23,5 +24,7 @@
   },
   "author": "",
   "license": "MIT",
-  "devDependencies": {}
+  "devDependencies": {
+    "concurrently": "^3.5.1"
+  }
 }

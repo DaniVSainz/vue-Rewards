@@ -37,6 +37,8 @@ app.use(logger('dev'));
 // CORS Middleware
 app.use(cors());
 
+// Set Static Folder
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // Body Parser Middleware
 app.use(bodyParser.json());
@@ -63,10 +65,9 @@ app.get('/', (req, res) => {
   res.send('invaild endpoint');
 });
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, './client/dist/index.html'));
-//   res.send('Hello from not / endpoint');
-// });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
 
 // Start Server
 // app.listen(port, () => {
