@@ -1,7 +1,7 @@
 <template>
   <div class="">
-    <div class="row" style='margin-top:35px;'>
-      <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 row-box gray">
+    <div class="row" >
+      <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 row-box gray" style='padding-top:35px;padding-bottom:50px;'>
         <div class="center" style='display:flex;'>
           <b-img v-bind:src='image_url' style="height:38vh;width:24vw;" fluid alt="Fluid image"  />
           <b-card text-variant="black" :title="`Win a ` + name" style="max-width: 23rem;">
@@ -41,17 +41,20 @@
     </div>
 
     <div class="row">
-      <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 row-box gray">
-        <hr>
-        <div class="row-box">
-        <h4 class="card-title">
-          Description
-        </h4>
-        <p>
-          {{description}}
-        </p>
+      <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 row-box gray row-box gray" style='padding-top:60px;'>
+       <div class="row">
+         <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 row-box gray">
+           <hr>
+            <h4 class="card-title">
+              Description
+            </h4>
+            <p>
+              {{description}}
+            </p>
+       </div>
       </div>
-      </div>
+    </div>
+
     </div>
   </div>
 </template>
