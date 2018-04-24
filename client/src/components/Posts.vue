@@ -57,12 +57,7 @@ export default {
 }
 </script>
 <style type="text/css">
-.card-title{
-  color:black;
-  font-weight: 900;
-  opacity: 0.85;
-  margin-top:35px;
-}
+
 .center-text{
   display: flex;
   justify-content: center;
@@ -84,6 +79,12 @@ p{
 .my-card{
   max-width: 23rem;
   color:black;
+}
+.my-card .card-body .card-title{
+  font-weight: 900;
+  opacity: 0.85;
+  margin-top:35px;
+  font-size:20px;
 }
 .flex-justify{
   display: flex;
