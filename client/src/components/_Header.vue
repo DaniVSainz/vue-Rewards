@@ -58,6 +58,7 @@ export default {
   },
   mounted () {
     this.loadUser()
+    this.$events.$on('loggedIn', () => this.loadUser())
   },
   methods: {
     async loadUser () {
@@ -65,6 +66,7 @@ export default {
     },
     logOut () {
       AuthService.logOut()
+      this.username = null
     },
     async getProfile () {
       console.log(await AuthService.getProfile())

@@ -78,7 +78,7 @@ export default {
       // eslint-disable-next-line
       if (response.status == 200) {
         AuthService.storeUserData(response.data.token, response.data.user)
-        location.reload()
+        this.$events.$emit('loggedIn')
         this.$router.push({ name: 'Prizes' })
       }
     },

@@ -31,7 +31,6 @@ export default {
     this.authToken = null
     this.user = null
     localStorage.clear()
-    location.reload()
   },
 
   storeUserData (token, user) {
