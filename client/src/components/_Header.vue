@@ -5,21 +5,35 @@
               <img src="../assets/logo-razz.png" alt="Fake Logo" class="home">
           </router-link>
           <div style='height:auto;display:flex;' >
-            <router-link v-bind:to="'/login'" class="user-or-register">
-              Login
-            </router-link>
-            <router-link v-bind:to="'/register'" class="user-or-register">
-              Register
-            </router-link>
-            <p style='color:black;' class="user-or-register">
-              {{username}}
-            </p>
-            <b-button @click="logOut()" class="user-or-register">
-              Logout
-            </b-button>
-            <b-button @click="getProfile()" class="user-or-register">
-              Profile
-            </b-button>
+              <b-dropdown variant="link" size="lg" no-caret>
+                <template slot="button-content">
+                  <span class="" v-if="!username">Register/Login</span>
+                  <div v-else style="display:flex;">
+                    <div class="user-circle">
+                      <span style="color:black;">{{username.charAt(0)}}</span>
+                    </div>
+                    <div>
+                      <span>{{username}}</span>
+                    </div>
+                  </div>
+                </template>
+                <b-dropdown-item >
+                  <router-link v-bind:to="'/login'" >
+                    Login
+                  </router-link>
+                </b-dropdown-item>
+                <b-dropdown-item href="#">
+                  <router-link v-bind:to="'/register'" >
+                    Register
+                  </router-link>
+                </b-dropdown-item>
+                <b-dropdown-item href="#" @click="logOut()">
+                    Logout
+                </b-dropdown-item>
+                <b-dropdown-item href="#" @click="getProfile()">
+                    Profile
+                </b-dropdown-item>
+              </b-dropdown>
           </div>
       </div>
       <div class='col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 rewards center'>
@@ -87,5 +101,14 @@ export default {
 }
 .user-or-register{
   vertical-align: middle;
+}
+.user-circle{
+  height: 45px;
+  width: 45px;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
 }
 </style>
