@@ -4,10 +4,11 @@
       <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 center gray" style='padding-top:35px;padding-bottom:50px;'>
         <div class="row">
 
-          <div class="col-xlg-9 col-xl-9 col-lg-12 col-sm-12 col-12 center flex-between" style='justify-content:space-around;'>
-            <b-img v-bind:src='image_url' style="height:38vh;width:24vw;" fluid alt="Fluid image"  />
-            <b-card text-variant="black" :title="`Win a ` + name" style="max-width: 23rem;">
-              <hr>
+          <div class="col-xlg-9 col-xl-9 col-lg-12 col-sm-12 col-12 center flex-between desc-top">
+            <b-img v-bind:src='image_url' style="height:42vh;width:24vw;" fluid alt="Fluid image"  />
+            <b-card text-variant="black" style="min-width:460px;height:300px;">
+              <h4 class="my-card-header">Win a {{name}}</h4>
+              <hr style='margin-top:0px;'>
               <b-btn v-b-modal.modal1 variant='razz'>Redeem</b-btn>
               <hr>
               <p>
@@ -46,7 +47,7 @@
     <div class="row">
       <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 center gray">
        <div class="row">
-         <div class="col-xlg-11 col-xl-11 col-lg-12 col-sm-12 col-12 center gray desc-box flex-between">
+         <div class="col-xlg-9 col-xl-9 col-lg-12 col-sm-12 col-12 center gray desc-box flex-between">
             <h3 class="card-title" style='font-weight:800;font-size:1.2rem;'>
               Description
             </h3>
@@ -136,5 +137,15 @@ export default {
 .flex-between{
   display: flex;
   justify-content: space-between;
+}
+.desc-top{
+  padding-left:0px;
+  padding-right:0px;
+}
+.my-card-header{
+  height:100px;
+  font-weight:800;
+  font-size:30px;
+  margin-bottom:0px;
 }
 </style>
