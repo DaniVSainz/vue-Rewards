@@ -59,6 +59,7 @@ export default {
     float: left;
     height:8.6vh;
     align-items: center;
+    justify-content: space-between;
 }
 .home{
     height: 3em;
