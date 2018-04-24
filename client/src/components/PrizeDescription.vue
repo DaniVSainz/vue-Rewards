@@ -7,11 +7,11 @@
           <div class="col-xlg-9 col-xl-9 col-lg-12 col-sm-12 col-12 center flex-between desc-top">
             <b-img v-bind:src='image_url' style="height:42vh;width:24vw;" fluid alt="Fluid image"  />
             <b-card text-variant="black" style="min-width:460px;height:300px;">
-              <h4 class="my-card-header">Win a {{name}}</h4>
-              <hr style='margin-top:0px;'>
-              <b-btn v-b-modal.modal1 variant='razz'>Redeem</b-btn>
-              <hr>
-              <p>
+              <h4 class="my-card-header" style='display:flex;'>Win a {{name}}</h4>
+              <hr style='margin-top:0px;margin-bottom:30px;'>
+              <b-btn v-b-modal.modal1 variant='razz' class="redeem-button"><span class="center">Reedem ></span></b-btn>
+              <hr style='margin-top:30px;margin-bottom:5px;'>
+              <p style="display:flex;">
                 {{quantity}} left in stock
               </p>
             </b-card>
@@ -147,5 +147,10 @@ export default {
   font-weight:800;
   font-size:30px;
   margin-bottom:0px;
+}
+.redeem-button{
+  display:flex;
+  width: 215px;
+  height: 45px;
 }
 </style>
