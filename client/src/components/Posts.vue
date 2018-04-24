@@ -17,7 +17,7 @@
             class="mb-3 my-card"
             style='border:none;'
           >
-            <div class="flex-justify"  style='height:145px;'>
+            <div class="flex-justify"  style='height:105px;'>
               <router-link v-bind:to="'prizes/' + prize._id">
                 <b-button variant="razz" style="width:160px;height:45px;">Redeem <span style="font-family: cursive;font-weight: 500;"> ></span></b-button>
               </router-link>
@@ -59,7 +59,9 @@ export default {
 <style type="text/css">
 .card-title{
   color:black;
-  font-weight: 400;
+  font-weight: 900;
+  opacity: 0.85;
+  margin-top:35px;
 }
 .center-text{
   display: flex;
@@ -87,5 +89,9 @@ p{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.card img{
+  border-top-left-radius: calc(0.45rem - 1px);
+  border-top-right-radius: calc(0.45rem - 1px);
 }
 </style>

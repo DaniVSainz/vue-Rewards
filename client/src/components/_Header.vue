@@ -10,10 +10,10 @@
                   <span class="" v-if="!username">Register/Login</span>
                   <div v-else style="display:flex;">
                     <div class="user-circle">
-                      <span style="color:black;">{{username.charAt(0)}}</span>
+                      <span style="color:black;">{{username.charAt(0).toUpperCase()}}</span>
                     </div>
-                    <div>
-                      <span>{{username}}</span>
+                    <div style="display:flex;align-items:center;margin-left:10px;">
+                      <span class="username">{{username}}</span>
                     </div>
                   </div>
                 </template>
@@ -25,6 +25,11 @@
                 <b-dropdown-item href="#">
                   <router-link v-bind:to="'/register'" >
                     Register
+                  </router-link>
+                </b-dropdown-item>
+                <b-dropdown-item href="#">
+                  <router-link v-bind:to="'/prizes'" >
+                    Prizes
                   </router-link>
                 </b-dropdown-item>
                 <b-dropdown-item href="#" @click="logOut()">
@@ -110,5 +115,10 @@ export default {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+}
+.username{
+  color: black;
+  font-size: small;
+  font-weight: 600;
 }
 </style>

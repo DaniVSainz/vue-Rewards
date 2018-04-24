@@ -70,14 +70,27 @@ router.put('/claimprize/:id', passport.authenticate('jwt', {session:false}), asy
 router.get('/seeddata', async(req,res,next)=>{
   try{
     await Prize.collection.drop();
+    // New url's
+    // https://i.imgur.com/XkDsw4a.png
+    // https://i.imgur.com/7pV8uTV.png
+    // https://i.imgur.com/0eboxST.png
+    // https://i.imgur.com/rVJov5x.png
+    // https://i.imgur.com/Csx5W5U.png
+    // https://i.imgur.com/btIvJ1T.png
+    //OLD URLS
+    // 'https://i.imgur.com/Y7H4c44.png',
+    // 'https://i.imgur.com/DoC4xCh.png',
+    // 'https://i.imgur.com/ovRHwJf.png',
+    // 'https://i.imgur.com/vjLMii9.png',
+    // 'https://i.imgur.com/mgCAhJL.png',
+    // 'https://i.imgur.com/SM8tTO7.png'
     let urls = [
-      'https://i.imgur.com/Y7H4c44.png',
-      'https://i.imgur.com/DoC4xCh.png',
-      'https://i.imgur.com/ovRHwJf.png',
-      // 'https://i.imgur.com/vjLMii9.png',
-      'https://i.imgur.com/gUaU9Mj.png',
-      'https://i.imgur.com/mgCAhJL.png',
-      'https://i.imgur.com/SM8tTO7.png'
+    'https://i.imgur.com/XkDsw4a.png',
+    'https://i.imgur.com/7pV8uTV.png',
+    'https://i.imgur.com/0eboxST.png',
+    'https://i.imgur.com/rVJov5x.png',
+    'https://i.imgur.com/Csx5W5U.png',
+    'https://i.imgur.com/btIvJ1T.png'
     ]
     let names = ['Vinyl Player','iPhone 8',`Microphone`,`Ferrari Ride`,`Blue Microphone`,`PlayStation 4`]
     let descriptions = [
