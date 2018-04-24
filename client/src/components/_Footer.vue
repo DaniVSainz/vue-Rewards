@@ -18,10 +18,10 @@ export default {
     height: 225px;
     margin:0 auto;
     background-color: black;
-    radial-gradient: circle at top center,white,black 70%;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: radial-gradient( ellipse at top center, #cac8c859, #151414 55% );
 }
 .footer-links{
   color:white;
