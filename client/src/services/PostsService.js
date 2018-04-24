@@ -3,7 +3,7 @@ import AuthService from '@/services/AuthService'
 
 export default {
   fetchPosts () {
-    return Api().get('posts')
+    return Api().get('posts/')
   },
 
   addPost (params) {

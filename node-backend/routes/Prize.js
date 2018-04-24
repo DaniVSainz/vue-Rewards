@@ -34,6 +34,7 @@ router.post('/new', (req, res, next) => {
 
 //Get all Prizes
 router.get('/', (req, res) => {
+    console.log('get post')
     Prize.find({}, function (error, prizes) {
       if (error) { console.error(error); }
       res.send({
@@ -67,7 +68,7 @@ router.put('/claimprize/:id', passport.authenticate('jwt', {session:false}), asy
 
 
 //Method to clear db / seed data
-router.get('/seeddata', async(req,res,next)=>{
+router.post('/seeddata', async(req,res,next)=>{
   try{
     await Prize.collection.drop();
     // New url's

@@ -53,9 +53,9 @@ const users = require('./routes/users');
 const confirmation = require('./routes/confirmation');
 const Prize = require('./routes/Prize');
 
-app.use('/users', users);
-app.use('/confirmation', confirmation);
-app.use('/posts', Prize);
+app.use('/api/users', users);
+app.use('/api/confirmation', confirmation);
+app.use('/api/posts', Prize);
 
 
 

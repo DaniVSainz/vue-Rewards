@@ -79,7 +79,7 @@ export default {
       if (response.status == 200) {
         AuthService.storeUserData(response.data.token, response.data.user)
         location.reload()
-        this.$router.push({ path: 'Prizes' })
+        this.$router.push({ name: 'Prizes' })
       }
     },
     countDownChanged (dismissCountDown) {
