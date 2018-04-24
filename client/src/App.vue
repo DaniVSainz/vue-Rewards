@@ -37,8 +37,11 @@ export default {
 }
 
 .modal-backdrop{
-  width: 1257.330px;
+  width: 1268.330px;
   margin: 0 auto;
+}
+.modal-open{
+  padding-right:0 !important;
 }
 .modal-header{
   border-bottom:none;

@@ -98,7 +98,7 @@ export default {
     },
     hideModal () {
       this.$refs.areYouSureModal.hide()
-    }
+    },
   }
 }
 </script>
@@ -153,4 +153,5 @@ export default {
   width: 215px;
   height: 45px;
 }
+
 </style>
