@@ -95,4 +95,11 @@ p{
   border-top-left-radius: calc(0.45rem - 1px);
   border-top-right-radius: calc(0.45rem - 1px);
 }
+
+@media screen and (max-width: 1414px) {
+  .card-body .card-title{
+    height: 48px;
+  }
+}
+
 </style>
