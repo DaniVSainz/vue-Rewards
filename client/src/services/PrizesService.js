@@ -3,28 +3,28 @@ import AuthService from '@/services/AuthService'
 
 export default {
   fetchPosts () {
-    return Api().get('posts/')
+    return Api().get('prizes/')
   },
 
   addPost (params) {
-    return Api().post('posts/new', params)
+    return Api().post('prizes/new', params)
   },
 
   updatePost (params) {
-    return Api().put('posts/' + params.id, params)
+    return Api().put('prizes/' + params.id, params)
   },
 
   getPost (params) {
-    return Api().get('posts/' + params.id)
+    return Api().get('prizes/' + params.id)
   },
 
   deletePost (id) {
-    return Api().delete('posts/' + id)
+    return Api().delete('prizes/' + id)
   },
 
   async claimPrize (id) {
     await AuthService.loadToken()
-    return Api().put('posts/claimprize/' + id, null, { headers: { Authorization: AuthService.authToken } }).catch(error => {
+    return Api().put('prizes/claimprize/' + id, null, { headers: { Authorization: AuthService.authToken } }).catch(error => {
       // eslint-disable-next-line
       if (error.response.data == 'Unauthorized') {
         return {

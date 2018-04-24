@@ -23,7 +23,7 @@
 
 <script>
 
-import PostsService from '@/services/PostsService'
+import PrizesService from '@/services/PrizesService'
 export default {
   name: 'NewPost',
   data () {
@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     async addPost () {
-      await PostsService.addPost({
+      await PrizesService.addPost({
         name: this.name,
         description: this.description,
         quantity: this.quantity,

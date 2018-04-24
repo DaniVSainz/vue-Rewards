@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import PostsService from '@/services/PostsService'
+import PrizesService from '@/services/PrizesService'
 export default {
   name: 'PrizeDescription',
   data () {
@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     async getPost () {
-      const response = await PostsService.getPost({
+      const response = await PrizesService.getPost({
         id: this.$route.params.id
       })
       this.name = response.data.name
@@ -93,7 +93,7 @@ export default {
       this.id = response.data._id
     },
     async claimPrize () {
-      const response = await PostsService.claimPrize(this.id)
+      const response = await PrizesService.claimPrize(this.id)
       this.claimPrizeRes = response.data.claimPrizeRes
       this.msg = response.data.msg
     },

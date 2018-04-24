@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Posts from '@/components/Posts'
+import Prizes from '@/components/Prizes'
 import NewPost from '@/components/NewPost'
 import PrizeDescription from '@/components/PrizeDescription'
 import Login from '@/components/Login'
@@ -16,12 +16,12 @@ export default new Router({
     {
       path: '',
       name: 'RedirectToPrizes',
-      component: Posts
+      component: Prizes
     },
     {
       path: '/prizes',
       name: 'Prizes',
-      component: Posts
+      component: Prizes
     },
     {
       path: '/posts/new',

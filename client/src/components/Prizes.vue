@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import PostsService from '@/services/PostsService'
+import PrizesService from '@/services/PrizesService'
 
 export default {
   name: 'Prizes',
@@ -46,11 +46,11 @@ export default {
   },
   methods: {
     async getPosts () {
-      const response = await PostsService.fetchPosts()
+      const response = await PrizesService.fetchPosts()
       this.prizes = response.data.prizes
     },
     async deletePost (id) {
-      await PostsService.deletePost(id)
+      await PrizesService.deletePost(id)
       this.getPosts()
     }
   }
