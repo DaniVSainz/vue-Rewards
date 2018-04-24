@@ -11,7 +11,7 @@
               <hr style='margin-top:0px;margin-bottom:30px;'>
               <b-btn v-b-modal.modal1 variant='razz' class="redeem-button"><span class="center">Reedem ></span></b-btn>
               <hr style='margin-top:30px;margin-bottom:5px;'>
-              <p style="display:flex;">
+              <p style="display:flex;font-size:12px;">
                 {{quantity}} left in stock
               </p>
             </b-card>
