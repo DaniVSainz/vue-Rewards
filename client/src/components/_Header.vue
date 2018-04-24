@@ -35,9 +35,9 @@
                 <b-dropdown-item href="#" @click="logOut()">
                     Logout
                 </b-dropdown-item>
-                <b-dropdown-item href="#" @click="getProfile()">
+                <!-- <b-dropdown-item href="#" @click="getProfile()">
                     Profile
-                </b-dropdown-item>
+                </b-dropdown-item> -->
               </b-dropdown>
           </div>
       </div>

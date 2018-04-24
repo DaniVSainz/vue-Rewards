@@ -117,7 +117,7 @@ export default {
         await this.$events.$emit('loggedIn')
         setTimeout(() => {
           this.$router.push({ name: 'Prizes' })
-        }, 2000)
+        }, 3500)
       }
     },
 
