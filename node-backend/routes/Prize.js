@@ -68,9 +68,12 @@ router.put('/claimprize/:id', passport.authenticate('jwt', {session:false}), asy
 
 
 //Method to clear db / seed data
-router.post('/seeddata', async(req,res,next)=>{
+router.get('/seed/data', async(req,res,next)=>{
   try{
-    await Prize.collection.drop();
+    let testPrize = await Prize.find({});
+    if(testPrize.length >= 1){
+      await Prize.collection.drop();
+    }
     // New url's
     // https://i.imgur.com/XkDsw4a.png
     // https://i.imgur.com/7pV8uTV.png

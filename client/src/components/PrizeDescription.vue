@@ -4,9 +4,9 @@
       <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 center gray" style='padding-top:35px;padding-bottom:50px;'>
         <div class="row">
 
-          <div class="col-xlg-9 col-xl-9 col-lg-12 col-sm-12 col-12 center flex-between desc-top">
-            <b-img v-bind:src='image_url' style="height:42vh;width:24vw;" fluid alt="Fluid image"  />
-            <b-card text-variant="black" style="min-width:460px;height:300px;">
+          <div class="col-xlg-9 col-xl-9 col-lg-12 col-sm-12 col-12 center desc-top">
+            <b-img v-bind:src='image_url'  style="max-height:42vh;max-width:24vw;" fluid alt="Fluid image"  />
+            <b-card text-variant="black" style="height:300px;" class="style-card">
               <h4 class="my-card-header" style='display:flex;'>Win a {{name}}</h4>
               <hr style='margin-top:0px;margin-bottom:30px;'>
               <b-btn v-b-modal.modal1 variant='razz' class="redeem-button"><span class="center">Reedem ></span></b-btn>
@@ -18,7 +18,7 @@
           </div>
 
         <!-- Modal Component -->
-        <b-modal id="modal1" ref="areYouSureModal" no-fade centered header-border-variant='border:none;'>
+        <b-modal id="modal1" ref="areYouSureModal" no-fade centered>
           <h4 class="card-title">Are you Sure?</h4>
           <div class="round-image-container">
             <b-img v-bind:src='image_url' rounded="circle"  alt="img" />
@@ -49,7 +49,7 @@
       <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 center gray">
        <div class="row">
          <div class="col-xlg-9 col-xl-9 col-lg-12 col-sm-12 col-12 center gray desc-box flex-between">
-            <h3 class="card-title" style='font-weight:800;font-size:1.2rem;'>
+            <h3 class="card-title" style='font-weight:800;font-size:1.2rem;margin-top:0px;'>
               Description
             </h3>
             <p class="text-left" style='font-size:1em;margin-left:60px;color:#242527;'>
@@ -142,6 +142,8 @@ export default {
 .desc-top{
   padding-left:0px;
   padding-right:0px;
+  display: flex;
+  justify-content: space-between;
 }
 .my-card-header{
   height:100px;
@@ -164,4 +166,20 @@ export default {
   border-radius: 40px;
   width:155px;
 }
+
+.style-card{
+  min-width:460px;
+}
+
+@media screen and (max-width: 1360px) and (min-width: 1200px) {
+  .style-card{
+    min-width: 300px;
+  }
+}
+@media screen and (max-width: 1570px) {
+  .desc-top{
+    display:-webkit-box;
+  }
+}
+
 </style>
