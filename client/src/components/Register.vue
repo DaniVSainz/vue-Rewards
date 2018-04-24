@@ -113,7 +113,11 @@ export default {
       this.loggingIn = false
       // eslint-disable-next-line
       if (response.status == 200) {
-        AuthService.storeUserData(response.data.token, response.data.user)
+        await AuthService.storeUserData(response.data.token, response.data.user)
+        await this.$events.$emit('loggedIn')
+        setTimeout(() => {
+          this.$router.push({ name: 'Prizes' })
+        }, 2000)
       }
     },
 
