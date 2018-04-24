@@ -27,8 +27,9 @@
             Redeem for {{name}}?
           </p>
           <div slot='modal-footer' class="modal-buttons-div">
-              <b-btn v-b-modal.modal2  @click="claimPrize" variant='razz'>Yes</b-btn>
-              <b-button variant="gray" @click="hideModal" >Cancel</b-button>
+              <b-btn v-b-modal.modal2  @click="claimPrize" variant='razz' style="width:155px;">Yes</b-btn>
+              <div style="width:20px;height:1px;"></div>
+              <b-button variant="gray" @click="hideModal" class="hideModal" >Cancel</b-button>
           </div>
         </b-modal>
         <b-modal id="modal2" hide-footer no-fade centered>
@@ -98,7 +99,7 @@ export default {
     },
     hideModal () {
       this.$refs.areYouSureModal.hide()
-    },
+    }
   }
 }
 </script>
@@ -153,5 +154,14 @@ export default {
   width: 215px;
   height: 45px;
 }
-
+.modal-buttons-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.hideModal{
+  border-radius: 40px;
+  width:155px;
+}
 </style>
