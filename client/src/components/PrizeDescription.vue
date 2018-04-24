@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div class="row" >
-      <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 row-box gray" style='padding-top:35px;padding-bottom:50px;'>
+      <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 center gray" style='padding-top:35px;padding-bottom:50px;'>
         <div class="row">
 
           <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 center" style='display:flex;'>
@@ -44,14 +44,13 @@
     </div>
 
     <div class="row">
-      <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 row-box gray row-box gray" style='padding-top:60px;'>
+      <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 center gray">
        <div class="row">
-         <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 row-box gray">
-           <hr style="color:#e1e1e1;">
-            <h4 class="card-title">
+         <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 center gray desc-box flex-between" style="padding:0;">
+            <h3 class="card-title" style='font-weight:800;font-size:1.2rem;'>
               Description
-            </h4>
-            <p class="text-left">
+            </h3>
+            <p class="text-left" style='font-size:1em'>
               {{description}}
             </p>
        </div>
@@ -112,10 +111,10 @@ export default {
   color:black;
   font-weight: 400;
 }
-.row-box{
-  /* display:flex; */
+/* .row-box{
+  display:flex;
   margin:0 auto;
-}
+} */
 .round-image-container {
   display: inline-block;
   position: relative;
@@ -129,5 +128,13 @@ export default {
   width: auto;
   height: 100%;
   margin-left: -50px;
+}
+.desc-box{
+  border-top: 1px solid #e1e1e1;;
+  padding-top: 60px
+}
+.flex-between{
+  display: flex;
+  justify-content: space-between;
 }
 </style>
