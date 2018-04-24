@@ -15,6 +15,7 @@
             img-top
             tag="article"
             class="mb-3 my-card"
+            style='border:none;'
           >
             <div class="card-body">
               <router-link v-bind:to="'prizes/' + prize._id">

@@ -70,19 +70,12 @@ router.put('/claimprize/:id', passport.authenticate('jwt', {session:false}), asy
 router.get('/seeddata', async(req,res,next)=>{
   try{
     await Prize.collection.drop();
-    // IBB links don't have top rounded borders like imgur.
-    // https://ibb.co/fSet1x
-    // https://ibb.co/ekZ48c
-    // https://ibb.co/e3Kt1x
-    // https://ibb.co/kFJLgx
-    // https://ibb.co/ixBHTc
-    // https://ibb.co/hwEt1x
-    // https://ibb.co/jZdLgx
     let urls = [
       'https://i.imgur.com/Y7H4c44.png',
       'https://i.imgur.com/DoC4xCh.png',
       'https://i.imgur.com/ovRHwJf.png',
-      'https://i.imgur.com/vjLMii9.png',
+      // 'https://i.imgur.com/vjLMii9.png',
+      'https://i.imgur.com/gUaU9Mj.png',
       'https://i.imgur.com/mgCAhJL.png',
       'https://i.imgur.com/SM8tTO7.png'
     ]
