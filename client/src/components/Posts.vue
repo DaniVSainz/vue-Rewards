@@ -14,8 +14,7 @@
             img-alt="Image"
             img-top
             tag="article"
-            style="max-width: 23rem;color:black;"
-            class="mb-3"
+            class="mb-3 my-card"
           >
             <div class="card-body">
               <router-link v-bind:to="'prizes/' + prize._id">
@@ -24,7 +23,7 @@
             </div>
         </b-card>
       </b-card-group>
-    </div>  
+    </div>
   </div>
 
   </div>
@@ -79,7 +78,8 @@ export default {
 p{
   font-size:1.4em;
 }
-.gray{
-    background-color: #f3f3f3;
+.my-card{
+  max-width: 23rem;
+  color:black;
 }
 </style>

@@ -1,56 +1,53 @@
 <template>
-  <div class="">
-    <div class="row" style='margin-top:35px;'>
-      <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 row-box gray">
-        <div class="center" style='display:flex;'>
-          <b-img v-bind:src='image_url' style="height:38vh;width:24vw;" fluid alt="Fluid image"  />
-          <b-card text-variant="black" :title="`Win a ` + name" style="max-width: 23rem;">
-            <hr>
-            <b-btn v-b-modal.modal1 variant='razz'>Redeem</b-btn>
-            <hr>
-            <p>
-              {{quantity}} left in stock
-            </p>
-          </b-card>
-        </div>
+  <div class="posts">
+    <div class="container">
+      <div class="row">
+        <div class="row-box">
 
-      <!-- Modal Component -->
-      <b-modal id="modal1" ref="areYouSureModal" no-fade centered header-border-variant='border:none;'>
-        <h4 class="card-title">Are you Sure?</h4>
-        <div class="round-image-container">
-          <b-img v-bind:src='image_url' rounded="circle"  alt="img" />
+        <b-img v-bind:src='image_url' style="height:38vh;width:24vw;" fluid alt="Fluid image"  />
+        <b-card text-variant="black" :title="`Win a ` + name" style="max-width: 23rem;">
+          <hr>
+          <b-btn v-b-modal.modal1 variant='razz'>Redeem</b-btn>
+          <hr>
+          <p>
+            {{quantity}} left in stock
+          </p>
+        </b-card>
+        <!-- Modal Component -->
+        <b-modal id="modal1" ref="areYouSureModal" no-fade centered header-border-variant='border:none;'>
+          <h4 class="card-title">Are you Sure?</h4>
+          <div class="round-image-container">
+            <b-img v-bind:src='image_url' rounded="circle"  alt="img" />
+          </div>
+          <p>
+            Redeem for {{name}}?
+          </p>
+          <div slot='modal-footer' class="modal-buttons-div">
+              <b-btn v-b-modal.modal2  @click="claimPrize" variant='razz'>Yes</b-btn>
+              <b-button variant="gray" @click="hideModal" >Cancel</b-button>
+          </div>
+        </b-modal>
+        <b-modal id="modal2" hide-footer no-fade centered>
+          <h4 class="card-title">{{claimPrizeRes}}</h4>
+          <p>
+            {{msg}}
+          </p>
+          <router-link v-bind:to="'/'">
+            <b-button variant="razz">More Prizes</b-button>
+          </router-link>
+        </b-modal>
         </div>
-        <p>
-          Redeem for {{name}}?
-        </p>
-        <div slot='modal-footer' class="modal-buttons-div">
-            <b-btn v-b-modal.modal2  @click="claimPrize" variant='razz'>Yes</b-btn>
-            <b-button variant="gray" @click="hideModal" >Cancel</b-button>
-        </div>
-      </b-modal>
-      <b-modal id="modal2" hide-footer no-fade centered>
-        <h4 class="card-title">{{claimPrizeRes}}</h4>
-        <p>
-          {{msg}}
-        </p>
-        <router-link v-bind:to="'/'">
-          <b-button variant="razz">More Prizes</b-button>
-        </router-link>
-      </b-modal>
       </div>
     </div>
-
     <div class="row">
-      <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 row-box gray">
-        <hr>
-        <div class="row-box">
+      <hr>
+      <div class="row-box">
         <h4 class="card-title">
           Description
         </h4>
         <p>
           {{description}}
         </p>
-      </div>
       </div>
     </div>
   </div>

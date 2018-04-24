@@ -60,4 +60,7 @@ html, body {
 .center{
     margin:0 auto;
 }
+.gray{
+    background-color: #f3f3f3;
+}
 </style>
