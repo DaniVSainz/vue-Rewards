@@ -33,27 +33,26 @@ router.post('/new', (req, res, next) => {
 
 //Get all Prizes
 router.get('/', (req, res) => {
-    console.log('get post')
     Prize.find({}, function (error, prizes) {
       if (error) { console.error(error); }
       res.send({
         prizes
       })
     })
-    // .sort({_id:-1})
 });
 
 // try claiming a prize
 router.put('/claimprize/:id', passport.authenticate('jwt', {session:false}), async (req, res, next) => {
+  //If we are inside here jwt Signature passed and user is logged in.
   try{
     let prize = await Prize.findOne({_id: req.params.id});
     if(prize.quantity > 0 ){
       prize.quantity = prize.quantity -1 ;
-      await prize.save((err)=>{
+      await prize.save((err,prize)=>{
         if(err){
           return res.status(500).send({claimPrizeRes: 'Ran into Error,Sorry :(', msg:err});
         }else{
-          return res.status(200).send({claimPrizeRes: 'Congratulations', msg:`You redeemed ${prize.name}.`});
+          return res.status(200).send({claimPrizeRes: 'Congratulations', msg:`You redeemed ${prize.name}.`,prize});
         }
       });
     }else if(prize.quantity == 0){
