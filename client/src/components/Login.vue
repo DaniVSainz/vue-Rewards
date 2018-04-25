@@ -5,7 +5,7 @@
       variant="warning"
       @dismissed="dismissCountDown=0"
       @dismiss-count-down="countDownChanged">
-      <p>{{error}}</p>
+      <p>{{msg}}</p>
       <b-progress variant="warning"
       :max="dismissSecs"
       :value="dismissCountDown"
@@ -59,7 +59,7 @@ export default {
         password: ''
       },
       loggingIn: false,
-      error: '',
+      msg: '',
       dismissSecs: 10,
       dismissCountDown: 0
     }
@@ -72,7 +72,7 @@ export default {
         password: this.credentials.password
       }
       let response = await AuthService.login(credentials)
-      this.error = response.data.msg
+      this.msg = response.data.msg
       this.showAlert()
       this.loggingIn = false
       // eslint-disable-next-line

@@ -12,7 +12,7 @@
             <b-card text-variant="black" style="height:300px;" class="style-card">
               <h4 class="my-card-header" style='display:flex;'>Win a {{name}}</h4>
               <hr style='margin-top:0px;margin-bottom:30px;'>
-              <b-btn v-b-modal.modal1 variant='razz' class="redeem-button"><span class="center">Reedem ></span></b-btn>
+              <b-btn v-b-modal.modal1 variant='razz' class="redeem-button"><span class="center">Reedem <span style="font-family: cursive;font-weight: 500;"> ></span></span></b-btn>
               <hr style='margin-top:30px;margin-bottom:5px;'>
               <p style="display:flex;font-size:12px;">
                 {{quantity}} left in stock
