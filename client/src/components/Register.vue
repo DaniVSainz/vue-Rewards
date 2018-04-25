@@ -95,13 +95,11 @@ export default {
       if (!Validator.validateEmail(user.email)) {
         this.error = 'Please input a valid email'
         return this.showError()
-
       }
 
       if (!Validator.validatePassword(user)) {
         this.error = `Passwords aren't the same`
         return this.showError()
-
       }
       let response = await AuthService.register(user)
       this.error = response.data.msg
@@ -123,7 +121,7 @@ export default {
     showAlert () {
       this.dismissCountDown = this.dismissSecs
     },
-    showError(){
+    showError () {
       this.showAlert()
       this.loggingIn = false
       return false
