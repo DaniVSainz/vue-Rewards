@@ -96,9 +96,20 @@ export default {
       const response = await PrizesService.claimPrize(this.id)
       this.claimPrizeRes = response.data.claimPrizeRes
       this.msg = response.data.msg
+      console.log(response.data)
+      if (response.data.prize) {
+        this.setPrize(response.data.prize)
+      }
     },
     hideModal () {
       this.$refs.areYouSureModal.hide()
+    },
+    setPrize (prize) {
+      this.name = prize.name
+      this.description = prize.description
+      this.quantity = prize.quantity
+      this.image_url = prize.image_url
+      this.id = prize._id
     }
   }
 }

@@ -12,15 +12,14 @@ router.post('/new', (req, res, next) => {
     let quantity = req.body.quantity;
     let image_url = req.body.image_url;
 
-    let new_post = new Prize({
+    let newPrize = new Prize({
         name,
         description,
         quantity,
         image_url
     });
-    console.log(new_post);
 
-    new_post.save(function (error) {
+    newPrize.save(function (error) {
         if (error) {
         console.log(error)
         }
@@ -44,7 +43,7 @@ router.get('/', (req, res) => {
     // .sort({_id:-1})
 });
 
-//try claiming a prize
+// try claiming a prize
 router.put('/claimprize/:id', passport.authenticate('jwt', {session:false}), async (req, res, next) => {
   try{
     let prize = await Prize.findOne({_id: req.params.id});
@@ -66,7 +65,6 @@ router.put('/claimprize/:id', passport.authenticate('jwt', {session:false}), asy
   }
 });
 
-
 //Method to clear db / seed data
 router.get('/seed/data', async(req,res,next)=>{
   try{
@@ -74,20 +72,6 @@ router.get('/seed/data', async(req,res,next)=>{
     if(testPrize.length >= 1){
       await Prize.collection.drop();
     }
-    // New url's
-    // https://i.imgur.com/XkDsw4a.png
-    // https://i.imgur.com/7pV8uTV.png
-    // https://i.imgur.com/0eboxST.png
-    // https://i.imgur.com/rVJov5x.png
-    // https://i.imgur.com/Csx5W5U.png
-    // https://i.imgur.com/btIvJ1T.png
-    //OLD URLS
-    // 'https://i.imgur.com/Y7H4c44.png',
-    // 'https://i.imgur.com/DoC4xCh.png',
-    // 'https://i.imgur.com/ovRHwJf.png',
-    // 'https://i.imgur.com/vjLMii9.png',
-    // 'https://i.imgur.com/mgCAhJL.png',
-    // 'https://i.imgur.com/SM8tTO7.png'
     let urls = [
     'https://i.imgur.com/XkDsw4a.png',
     'https://i.imgur.com/7pV8uTV.png',
@@ -120,10 +104,8 @@ router.get('/seed/data', async(req,res,next)=>{
       An excellent workhorse mic for any studio, the Blue Bluebird SL large-diaphragm cardioid condenser microphone delivers accurate presence
       and transparency for any voice or instrument.`,
       `PS4 Pro gets you closer to your game. Heighten your experiences. Enrich your adventures. Let the super-charged PS4 Pro lead the way.`
-
-
-    
     ]
+
     let quantities =[6,10,3,35,2,55];
     let newPrize;
   
