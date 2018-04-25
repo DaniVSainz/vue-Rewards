@@ -17,12 +17,12 @@
                     </div>
                   </div>
                 </template>
-                <b-dropdown-item >
+                <b-dropdown-item v-if="!username" >
                   <router-link v-bind:to="'/login'" >
                     Login
                   </router-link>
                 </b-dropdown-item>
-                <b-dropdown-item href="#">
+                <b-dropdown-item href="#" v-if="!username">
                   <router-link v-bind:to="'/register'" >
                     Register
                   </router-link>
@@ -32,10 +32,10 @@
                     Prizes
                   </router-link>
                 </b-dropdown-item>
-                <b-dropdown-item href="#" @click="logOut()">
+                <b-dropdown-item href="#" @click="logOut()" style='color:#007bff;'>
                     Logout
                 </b-dropdown-item>
-                <b-dropdown-item href="#" @click="seedDatabase()">
+                <b-dropdown-item href="#" @click="seedDatabase()" style='color:#007bff;'>
                     Re-Seed-DB
                 </b-dropdown-item>
               </b-dropdown>

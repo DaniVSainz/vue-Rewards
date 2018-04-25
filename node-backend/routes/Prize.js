@@ -34,7 +34,10 @@ router.post('/new', (req, res, next) => {
 //Get all Prizes
 router.get('/', (req, res) => {
     Prize.find({}, function (error, prizes) {
-      if (error) { console.error(error); }
+      if (error) { 
+        console.error(error); 
+        res.status(500).send(err);
+      }
       res.send({
         prizes
       })
@@ -121,7 +124,7 @@ router.get('/seed/data', async(req,res,next)=>{
 
     res.send({msg:'Success'});
   }catch(err){
-    console.log(err);
+    res.status(500).send({msg:'Ran into error', err});
     next(err);
   }
 
@@ -129,9 +132,11 @@ router.get('/seed/data', async(req,res,next)=>{
 
 // Fetch single prize
 router.get('/:id', (req, res) => {
-  Prize.findById(req.params.id, '', function (error, post) {
-    if (error) { console.error(error); }
-    res.send(post)
+  Prize.findById(req.params.id, '', function (error, prize) {
+    if (error) { 
+      res.status(500).send({msg:'Ran into error', err});
+    }
+    res.status(200).send(prize)
   })
 })
 
@@ -139,9 +144,10 @@ router.get('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   Prize.remove({
     _id: req.params.id
-  }, function(err, post){
-    if (err)
+  }, function(err, prize){
+    if (err){
       res.send(err)
+    }
     res.send({
       success: true,
       msg:'Deleted Prize'
