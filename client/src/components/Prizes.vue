@@ -7,7 +7,7 @@
     </div>
 
     <div class="row">
-      <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 center gray">
+      <div class="col-xlg-8 col-xl-8 col-lg-12 col-sm-12 col-12 center gray" style='padding-bottom:55px;'>
         <b-card-group columns class="myCardGroup">
           <b-card v-for="(prize, index) in prizes"  :key="prize._id" :title="`Win a ` + prize.name"
             :img-src='prize.image_url'
