@@ -1,5 +1,5 @@
 <template>
-  <div class="ev-login col-sm-4 offset-sm-4">
+  <div class="ev-login col-sm-4 offset-sm-4" v-on:keyup.enter="submit()">
     <b-alert :show="dismissCountDown"
              dismissible
              variant="warning"
