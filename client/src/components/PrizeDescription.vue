@@ -5,7 +5,7 @@
         <div class="row">
 
           <div class="col-xlg-9 col-xl-9 col-lg-12 col-sm-12 col-12 center desc-top">
-            <b-img v-bind:src='image_url'  style="max-height:42vh;max-width:24vw;" fluid alt="Fluid image"  />
+            <b-img v-bind:src='image_url'  style="max-height:42vh;max-width:24vw;" fluid-grow alt="Fluid image"  />
             <b-card text-variant="black" style="height:300px;" class="style-card">
               <h4 class="my-card-header" style='display:flex;'>Win a {{name}}</h4>
               <hr style='margin-top:0px;margin-bottom:30px;'>
@@ -18,7 +18,7 @@
           </div>
 
         <!-- Modal Component -->
-        <b-modal id="modal1" ref="areYouSureModal" no-fade centered>
+        <b-modal id="modal1" ref="areYouSureModal" no-fade centered body-class='prize-modal-body'>
           <h4 class="card-title">Are you Sure?</h4>
           <div class="round-image-container">
             <b-img v-bind:src='image_url' rounded="circle"  alt="img" />
@@ -32,7 +32,7 @@
               <b-button variant="gray" @click="hideModal" class="hideModal" >Cancel</b-button>
           </div>
         </b-modal>
-        <b-modal id="modal2" hide-footer no-fade centered>
+        <b-modal id="modal2" hide-footer no-fade centered body-class='prize-modal-2'>
           <h4 class="card-title">{{claimPrizeRes}}</h4>
           <p>
             {{msg}}
@@ -135,6 +135,7 @@ export default {
   height: 200px;
   overflow: hidden;
   border-radius: 50%;
+  margin-bottom:20px;
 }
 
 .round-image-container img {
@@ -192,5 +193,26 @@ export default {
     display:-webkit-box;
   }
 }
-
+.modal-content .modal-header{
+  padding-top:0px;
+  padding-bottom:0px;
+}
+.prize-modal-body{
+  padding-top:0px !important;
+}
+.prize-modal-body h4{
+  font-weight: 900;
+  opacity: 0.85;
+  font-size:30px;
+  margin-bottom:15px;
+}
+.prize-modal-2{
+  padding-top:0px !important;
+}
+.prize-modal-2 h4{
+  font-weight: 900;
+  opacity: 0.85;
+  font-size:25px;
+  margin-bottom:15px;
+}
 </style>
