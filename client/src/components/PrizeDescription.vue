@@ -5,7 +5,10 @@
         <div class="row">
 
           <div class="col-xlg-9 col-xl-9 col-lg-12 col-sm-12 col-12 center desc-top">
-            <b-img v-bind:src='image_url'  style="max-height:42vh;max-width:24vw;" fluid-grow alt="Fluid image"  />
+            <div style="width:50%;">
+              <b-img v-bind:src='image_url'  style="width:100%;height:auto" fluid-grow alt="Fluid image"  />
+            </div>
+
             <b-card text-variant="black" style="height:300px;" class="style-card">
               <h4 class="my-card-header" style='display:flex;'>Win a {{name}}</h4>
               <hr style='margin-top:0px;margin-bottom:30px;'>
@@ -183,7 +186,7 @@ export default {
   min-width:460px;
 }
 
-@media screen and (max-width: 1360px) and (min-width: 1200px) {
+@media screen and (max-width: 1385px) and (min-width: 1200px) {
   .style-card{
     min-width: 300px;
   }
