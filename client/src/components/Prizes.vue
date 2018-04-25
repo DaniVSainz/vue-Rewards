@@ -56,9 +56,10 @@ export default {
       this.getPosts()
     },
     needsMargin (index) {
+      // eslint-disable-next-line
       if(index % 3 == 0){
         return true
-      }else{
+      } else {
         return false
       }
     }
