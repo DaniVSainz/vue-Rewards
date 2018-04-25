@@ -37,6 +37,12 @@ export default {
         return error.response
       }
     })
+  },
+
+  seedDatabase () {
+    return Api().get('prizes/seed/data/').catch((err) => {
+      console.log(err)
+    })
   }
 
 }

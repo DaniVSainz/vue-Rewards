@@ -35,9 +35,9 @@
                 <b-dropdown-item href="#" @click="logOut()">
                     Logout
                 </b-dropdown-item>
-                <!-- <b-dropdown-item href="#" @click="getProfile()">
-                    Profile
-                </b-dropdown-item> -->
+                <b-dropdown-item href="#" @click="seedDatabase()">
+                    Re-Seed-DB
+                </b-dropdown-item>
               </b-dropdown>
           </div>
       </div>
@@ -49,6 +49,7 @@
 
 <script>
 import AuthService from '@/services/AuthService'
+import PrizeService from '@/services/PrizesService'
 export default {
   name: 'Header',
   data () {
@@ -70,6 +71,15 @@ export default {
     },
     async getProfile () {
       console.log(await AuthService.getProfile())
+    },
+    async seedDatabase () {
+      const response = await PrizeService.seedDatabase()
+      // eslint-disable-next-line
+      if (response.data.msg == 'Success') {
+        console.log(response.data.msg)
+        alert(`Dropped prize collection and inserted new prizes with fresh quantities.`)
+        location.reload()
+      }
     }
   }
 }
